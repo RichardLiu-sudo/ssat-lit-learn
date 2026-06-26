@@ -1,7 +1,11 @@
 import { useStore } from '../store/useStore'
-import { modules } from '../data/modules'
+import { useModules, useLanguage } from '../i18n/dataAccess'
+import { translations } from '../i18n/translations'
 
 export default function Dashboard() {
+  const lang = useLanguage()
+  const t = (key: keyof typeof translations) => translations[key]?.[lang] ?? key
+  const modules = useModules()
   const { completedModules, exerciseResults, mistakeIds } = useStore()
 
   const total = modules.length
@@ -11,7 +15,7 @@ export default function Dashboard() {
 
   const moduleStats = modules.map((m) => ({
     id: m.id,
-    title: m.titleCn,
+    title: lang === 'zh' ? m.titleCn : m.title,
     completed: completedModules.has(m.id),
     correct: Object.values(exerciseResults).filter((r) => r.exerciseId.startsWith(m.id) && r.correct).length,
     total: Object.values(exerciseResults).filter((r) => r.exerciseId.startsWith(m.id)).length,
@@ -19,12 +23,12 @@ export default function Dashboard() {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold mb-6">Learning Dashboard</h1>
+      <h1 className="text-3xl font-bold mb-6">{t('dashboard.title')}</h1>
 
       <div className="grid md:grid-cols-3 gap-4 mb-8">
         <div className="card text-center">
           <p className="text-4xl font-bold text-blue-600 dark:text-blue-400">{completed}/{total}</p>
-          <p className="text-gray-500 dark:text-gray-400 mt-1">Modules Completed</p>
+          <p className="text-gray-500 dark:text-gray-400 mt-1">{t('dashboard.modulesCompleted')}</p>
           <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 mt-3">
             <div
               className="bg-blue-600 dark:bg-blue-400 h-2 rounded-full transition-all"
@@ -36,7 +40,7 @@ export default function Dashboard() {
           <p className="text-4xl font-bold text-green-600 dark:text-green-400">
             {correctExercises}/{totalExercises}
           </p>
-          <p className="text-gray-500 dark:text-gray-400 mt-1">Practice Accuracy</p>
+          <p className="text-gray-500 dark:text-gray-400 mt-1">{t('dashboard.practiceAccuracy')}</p>
           <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 mt-3">
             <div
               className="bg-green-600 dark:bg-green-400 h-2 rounded-full transition-all"
@@ -46,12 +50,12 @@ export default function Dashboard() {
         </div>
         <div className="card text-center">
           <p className="text-4xl font-bold text-red-600 dark:text-red-400">{mistakeIds.size}</p>
-          <p className="text-gray-500 dark:text-gray-400 mt-1">Mistakes</p>
+          <p className="text-gray-500 dark:text-gray-400 mt-1">{t('dashboard.mistakes')}</p>
         </div>
       </div>
 
       <div className="card">
-        <h2 className="text-xl font-bold mb-4">Module Progress</h2>
+        <h2 className="text-xl font-bold mb-4">{t('dashboard.moduleProgress')}</h2>
         <div className="space-y-3">
           {moduleStats.map((s) => (
             <div key={s.id} className="flex items-center gap-4">
@@ -64,7 +68,7 @@ export default function Dashboard() {
                 />
               </div>
               <span className="text-xs text-gray-500 dark:text-gray-400 w-16 text-right">
-                {s.completed ? 'Done' : s.total > 0 ? `${s.correct}/${s.total}` : '-'}
+                {s.completed ? t('dashboard.done') : s.total > 0 ? `${s.correct}/${s.total}` : '-'}
               </span>
             </div>
           ))}

@@ -1,42 +1,46 @@
 import { Link } from 'react-router-dom'
-import { modules } from '../data/modules'
+import { useModules, useLanguage } from '../i18n/dataAccess'
+import { translations } from '../i18n/translations'
 import { useStore } from '../store/useStore'
 
 export default function Learn() {
+  const lang = useLanguage()
+  const t = (key: keyof typeof translations) => translations[key]?.[lang] ?? key
+  const modules = useModules()
   const { getModuleStatus } = useStore()
 
   return (
     <div>
-      <h1 className="text-3xl font-bold mb-2">Learning Center</h1>
+      <h1 className="text-3xl font-bold mb-2">{t('learn.title')}</h1>
       <p className="text-gray-600 dark:text-gray-400 mb-8">
-        Complete the following modules in order. Each module includes theory explanations, model passage analysis, and practice exercises.
+        {t('learn.subtitle')}
       </p>
 
       <div className="space-y-6">
         <div>
           <h2 className="text-xl font-semibold mb-4 text-blue-600 dark:text-blue-400">
-            Unit 1 · Fiction Reading
+            {t('learn.unit1')}
           </h2>
           <div className="grid md:grid-cols-2 gap-4">
             {modules
               .filter((m) => m.unit === 1)
               .map((m) => {
                 const status = getModuleStatus(m.id, m.prerequisites || [])
-                return <ModuleCard key={m.id} module={m} status={status} />
+                return <ModuleCard key={m.id} module={m} status={status} lang={lang} t={t} />
               })}
           </div>
         </div>
 
         <div>
           <h2 className="text-xl font-semibold mb-4 text-purple-600 dark:text-purple-400">
-            Unit 2 · Poetry Reading
+            {t('learn.unit2')}
           </h2>
           <div className="grid md:grid-cols-2 gap-4">
             {modules
               .filter((m) => m.unit === 2)
               .map((m) => {
                 const status = getModuleStatus(m.id, m.prerequisites || [])
-                return <ModuleCard key={m.id} module={m} status={status} />
+                return <ModuleCard key={m.id} module={m} status={status} lang={lang} t={t} />
               })}
           </div>
         </div>
@@ -45,12 +49,12 @@ export default function Learn() {
   )
 }
 
-function ModuleCard({ module, status }: any) {
-  const statusText: Record<string, string> = {
-    locked: 'Locked',
-    available: 'Available',
-    'in-progress': 'In Progress',
-    completed: 'Completed',
+function ModuleCard({ module, status, lang, t }: any) {
+  const statusText: Record<string, keyof typeof translations> = {
+    locked: 'learn.locked',
+    available: 'learn.available',
+    'in-progress': 'learn.inProgress',
+    completed: 'learn.completed',
   }
   const statusColor: Record<string, string> = {
     locked: 'bg-gray-200 text-gray-700 dark:bg-gray-800 dark:text-gray-400',
@@ -63,17 +67,17 @@ function ModuleCard({ module, status }: any) {
     <div className="card">
       <div className="flex justify-between items-start mb-2">
         <div>
-          <h3 className="font-bold text-lg">{module.titleCn}</h3>
-          <p className="text-sm text-gray-500 dark:text-gray-400">{module.title}</p>
+          <h3 className="font-bold text-lg">{lang === 'zh' ? module.titleCn : module.title}</h3>
+          <p className="text-sm text-gray-500 dark:text-gray-400">{lang === 'zh' ? module.title : module.titleCn}</p>
         </div>
         <span className={`text-xs font-medium px-2 py-1 rounded-full ${statusColor[status]}`}>
-          {statusText[status]}
+          {t(statusText[status])}
         </span>
       </div>
       <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">{module.description}</p>
       <div className="flex justify-between items-center text-sm">
         <span className="text-gray-500 dark:text-gray-400">
-          {module.estimatedTime} · {module.exerciseCount} questions
+          {module.estimatedTime} · {module.exerciseCount} {t('learn.questions')}
         </span>
         <Link
           to={`/learn/${module.id}`}
@@ -83,7 +87,7 @@ function ModuleCard({ module, status }: any) {
               : 'bg-blue-600 hover:bg-blue-700 text-white'
           }`}
         >
-          {status === 'completed' ? 'Review' : 'Enter'}
+          {status === 'completed' ? t('learn.review') : t('learn.enter')}
         </Link>
       </div>
     </div>

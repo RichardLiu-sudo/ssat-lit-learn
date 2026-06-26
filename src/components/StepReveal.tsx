@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { useStore } from '../store/useStore'
+import { useLanguage } from '../i18n/dataAccess'
+import { translations } from '../i18n/translations'
 
 interface Props {
   children: React.ReactNode[]
@@ -9,6 +11,8 @@ interface Props {
 export default function StepReveal({ children, teacherMode: forceMode }: Props) {
   const storeTeacherMode = useStore((s) => s.teacherMode)
   const teacherMode = forceMode ?? storeTeacherMode
+  const lang = useLanguage()
+  const t = (key: keyof typeof translations) => translations[key]?.[lang] ?? key
   const [revealed, setRevealed] = useState(teacherMode ? 0 : children.length)
   const [showAll, setShowAll] = useState(!teacherMode)
 
@@ -32,14 +36,14 @@ export default function StepReveal({ children, teacherMode: forceMode }: Props) 
             onClick={() => setRevealed((r) => r + 1)}
             className="btn-primary"
           >
-            显示下一节 ({revealed + 1}/{children.length})
+            {t('stepReveal.next')} ({revealed + 1}/{children.length})
           </button>
         )}
         <button
           onClick={() => setShowAll(!showAll)}
           className="btn-secondary"
         >
-          {showAll ? 'Step by Step' : 'Show All'}
+          {showAll ? t('stepReveal.stepByStep') : t('stepReveal.showAll')}
         </button>
       </div>
     </div>

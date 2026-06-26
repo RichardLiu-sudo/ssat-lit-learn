@@ -1,19 +1,27 @@
 import { Link, useLocation } from 'react-router-dom'
 import { useStore } from '../store/useStore'
+import { useLanguage } from '../i18n/dataAccess'
+import { translations } from '../i18n/translations'
+import { useLanguageStore } from '../store/languageStore'
 import { FiSun, FiMoon, FiMonitor } from 'react-icons/fi'
 
 const navLinks = [
-  { to: '/', label: 'Home' },
-  { to: '/learn', label: 'Learning Center' },
-  { to: '/practice', label: 'Practice' },
-  { to: '/vocabulary', label: 'Vocabulary' },
-  { to: '/mistakes', label: 'Mistake Log' },
-  { to: '/dashboard', label: 'Dashboard' },
+  { to: '/', labelKey: 'nav.learningPlatform' as const },
+  { to: '/learn', labelKey: 'nav.learn' as const },
+  { to: '/practice', labelKey: 'nav.practice' as const },
+  { to: '/vocabulary', labelKey: 'nav.vocabulary' as const },
+  { to: '/mistakes', labelKey: 'nav.mistakes' as const },
+  { to: '/dashboard', labelKey: 'nav.dashboard' as const },
 ]
 
 export default function Navbar() {
   const location = useLocation()
+  const lang = useLanguage()
+  const setLanguage = useLanguageStore((s) => s.setLanguage)
   const { darkMode, toggleDarkMode, teacherMode, toggleTeacherMode } = useStore()
+
+  const t = (key: keyof typeof translations) =>
+    translations[key]?.[lang] ?? key
 
   return (
     <nav className="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur border-b border-gray-200 dark:border-gray-800">
@@ -33,12 +41,21 @@ export default function Navbar() {
                     : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800'
                 }`}
               >
-                {link.label}
+                {t(link.labelKey)}
               </Link>
             ))}
           </div>
         </div>
         <div className="flex items-center gap-2">
+          {/* Language Toggle */}
+          <button
+            onClick={() => setLanguage(lang === 'en' ? 'zh' : 'en')}
+            className="px-2.5 py-1.5 rounded-md text-sm font-medium text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            title={t('nav.langTip')}
+          >
+            {t('nav.switchLang')}
+          </button>
+          {/* Teacher Mode */}
           <button
             onClick={toggleTeacherMode}
             className={`px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
@@ -51,6 +68,7 @@ export default function Navbar() {
             <FiMonitor className="inline mr-1" />
             {teacherMode ? 'Presenting' : 'Present'}
           </button>
+          {/* Dark Mode */}
           <button
             onClick={toggleDarkMode}
             className="p-2 rounded-md text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"

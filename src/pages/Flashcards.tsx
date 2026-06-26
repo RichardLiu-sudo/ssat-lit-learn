@@ -1,8 +1,12 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { vocabWords } from '../data/vocabulary'
+import { useLanguage } from '../i18n/dataAccess'
+import { translations } from '../i18n/translations'
 
 export default function Flashcards() {
+  const lang = useLanguage()
+  const t = (key: keyof typeof translations) => translations[key]?.[lang] ?? key
   const [index, setIndex] = useState(0)
   const [flipped, setFlipped] = useState(false)
   const [knownCount, setKnownCount] = useState(0)
@@ -22,14 +26,14 @@ export default function Flashcards() {
   return (
     <div>
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold">Vocabulary Flashcards</h1>
+        <h1 className="text-3xl font-bold">{t('flashcards.title')}</h1>
         <Link to="/vocabulary" className="btn-secondary">
-          Back to Vocabulary
+          {t('flashcards.backToVocab')}
         </Link>
       </div>
 
       <p className="text-gray-600 dark:text-gray-400 mb-2">
-        {index + 1} / {vocabWords.length} · Mastered {knownCount}
+        {index + 1} / {vocabWords.length} · {t('flashcards.progress')} {knownCount}
       </p>
 
       <div className="w-full h-64 mb-4">
@@ -41,7 +45,7 @@ export default function Flashcards() {
             {!flipped ? (
               <>
                 <p className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-4">{word.word}</p>
-                <p className="text-sm text-gray-500 dark:text-gray-400">Tap to Flip</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400">{t('flashcards.tapToFlip')}</p>
               </>
             ) : (
               <>
@@ -60,10 +64,10 @@ export default function Flashcards() {
 
       <div className="flex justify-center gap-4">
         <button onClick={next} className="btn-secondary">
-          Skip
+          {t('flashcards.skip')}
         </button>
         <button onClick={markKnown} className="btn-primary">
-          Mastered
+          {t('flashcards.mastered')}
         </button>
       </div>
     </div>

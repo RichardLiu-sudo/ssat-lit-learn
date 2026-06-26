@@ -1,8 +1,12 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { vocabWords } from '../data/vocabulary'
+import { useLanguage } from '../i18n/dataAccess'
+import { translations } from '../i18n/translations'
 
 export default function Vocabulary() {
+  const lang = useLanguage()
+  const t = (key: keyof typeof translations) => translations[key]?.[lang] ?? key
   const [search, setSearch] = useState('')
   const [filterPos, setFilterPos] = useState('all')
 
@@ -18,14 +22,14 @@ export default function Vocabulary() {
   return (
     <div>
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold">Poetry Archaic Vocabulary</h1>
+        <h1 className="text-3xl font-bold">{t('vocabulary.title')}</h1>
         <Link to="/vocabulary/flashcard" className="btn-primary">
-          Flashcard Mode
+          {t('vocabulary.flashcardMode')}
         </Link>
       </div>
 
       <p className="text-gray-600 dark:text-gray-400 mb-6">
-        {vocabWords.length}+ high-frequency poetry archaic vocabulary, categorized by 7 parts of speech.
+        {vocabWords.length}{t('vocabulary.subtitle')}
       </p>
 
       <div className="flex gap-4 mb-6">
@@ -33,7 +37,7 @@ export default function Vocabulary() {
           type="text"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          placeholder="Search archaic or modern English..."
+          placeholder={t('vocabulary.search')}
           className="flex-1 px-4 py-2 border rounded-lg bg-white dark:bg-gray-800 dark:border-gray-700"
         />
         <select
@@ -43,7 +47,7 @@ export default function Vocabulary() {
         >
           {posTypes.map((pos) => (
             <option key={pos} value={pos}>
-              {pos === 'all' ? 'All POS' : pos}
+              {pos === 'all' ? t('vocabulary.allPOS') : pos}
             </option>
           ))}
         </select>

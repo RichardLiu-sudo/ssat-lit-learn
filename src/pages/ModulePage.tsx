@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom'
-import { modules } from '../data/modules'
-import { getExercisesByModule } from '../data/exercises'
+import { useModules, useExercises, useLanguage } from '../i18n/dataAccess'
 import { useStore } from '../store/useStore'
+import { translations } from '../i18n/translations'
 import StepReveal from '../components/StepReveal'
 import { FiCheck, FiEdit2 } from 'react-icons/fi'
 import { useState, useMemo } from 'react'
@@ -11,6 +11,10 @@ type PracticeMode = 'learn-first' | 'practice-first'
 export default function ModulePage() {
   const { moduleId } = useParams()
   const navigate = useNavigate()
+  const lang = useLanguage()
+  const t = (key: keyof typeof translations) => translations[key]?.[lang] ?? key
+  const modules = useModules()
+  const allExercises = useExercises()
   const { markModuleComplete, addNote, notes, teacherMode } = useStore()
   const [editingNote, setEditingNote] = useState<number | null>(null)
   const [noteText, setNoteText] = useState('')
@@ -18,14 +22,14 @@ export default function ModulePage() {
   const [revealedAnswers, setRevealedAnswers] = useState<Set<string>>(new Set())
 
   const module = modules.find((m) => m.id === moduleId)
-  const moduleExercises = useMemo(() => getExercisesByModule(moduleId || ''), [moduleId])
+  const moduleExercises = useMemo(() => allExercises.filter((e: { moduleId: string }) => e.moduleId === moduleId), [allExercises, moduleId])
 
   if (!module) {
     return (
       <div className="text-center py-12">
-        <h2 className="text-2xl font-bold mb-2">Module Not Found</h2>
-        <p className="text-gray-600 dark:text-gray-400 mb-4">Please check the URL or return to the Learning Center.</p>
-        <button onClick={() => navigate('/learn')} className="btn-primary">Back to Learning Center</button>
+        <h2 className="text-2xl font-bold mb-2">{t('module.notFound')}</h2>
+        <p className="text-gray-600 dark:text-gray-400 mb-4">{t('module.notFoundDesc')}</p>
+        <button onClick={() => navigate('/learn')} className="btn-primary">{t('module.backToLearn')}</button>
       </div>
     )
   }
@@ -57,11 +61,21 @@ export default function ModulePage() {
     }
   }
 
+  const typeLabelKey = (type: string): keyof typeof translations => {
+    switch (type) {
+      case 'choice': return 'module.choice'
+      case 'multiselect': return 'module.multiselect'
+      case 'fill': return 'module.fillIn'
+      case 'short_answer': return 'module.shortAnswer'
+      default: return 'module.choice'
+    }
+  }
+
   const renderExercises = () => (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h3 className="text-xl font-semibold flex items-center gap-2">
-          Passage Practice ({moduleExercises.length} questions)
+          {t('module.passagePractice')} ({moduleExercises.length} {t('module.questions')})
         </h3>
         {moduleExercises.length > 0 && (
           <button
@@ -78,21 +92,21 @@ export default function ModulePage() {
             }
             className="text-sm text-blue-600 dark:text-blue-400 hover:underline"
           >
-            {revealedAnswers.size === moduleExercises.length ? 'Hide All Answers' : 'Show All Answers'}
+            {revealedAnswers.size === moduleExercises.length ? t('module.hideAllAnswers') : t('module.showAllAnswers')}
           </button>
         )}
       </div>
 
       {moduleExercises.length === 0 ? (
         <div className="card text-center text-gray-500 dark:text-gray-400 py-8">
-          No passage practice available for this module
+          {t('module.noPractice')}
         </div>
       ) : (
         moduleExercises.map((ex) => (
           <div key={ex.id} className="card">
             <div className="flex items-start justify-between mb-3">
               <span className={`px-2 py-0.5 rounded text-xs font-medium ${typeBadgeColor(ex.type)}`}>
-                {ex.type === 'choice' ? 'Choice' : ex.type === 'fill' ? 'Fill-in' : 'Short Answer'}
+                {t(typeLabelKey(ex.type))}
               </span>
               {ex.passageTitle && (
                 <span className="text-sm font-medium text-gray-500 dark:text-gray-400">{ex.passageTitle}</span>
@@ -128,7 +142,7 @@ export default function ModulePage() {
                       <span className="font-mono text-gray-400 mr-2">{String.fromCharCode(65 + i)}.</span>
                       <span>{opt}</span>
                       {isRevealed && isCorrect && (
-                        <span className="ml-2 text-green-600 dark:text-green-400 font-medium">← Correct Answer</span>
+                        <span className="ml-2 text-green-600 dark:text-green-400 font-medium">{t('module.correctAnswer')}</span>
                       )}
                     </div>
                   )
@@ -139,7 +153,7 @@ export default function ModulePage() {
             {(ex.type === 'fill' || ex.type === 'short_answer') && (
               <div className="mb-3">
                 <div className="p-3 border border-dashed border-gray-300 dark:border-gray-600 rounded-lg text-sm text-gray-400 dark:text-gray-500 italic">
-                  {revealedAnswers.has(ex.id) ? `Answer: ${ex.answer}` : 'Click "Show Answer" to reveal'}
+                  {revealedAnswers.has(ex.id) ? `${t('module.answer')} ${ex.answer}` : t('module.clickToReveal')}
                 </div>
               </div>
             )}
@@ -149,12 +163,12 @@ export default function ModulePage() {
                 onClick={() => toggleReveal(ex.id)}
                 className="text-sm text-blue-600 dark:text-blue-400 hover:underline"
               >
-                {revealedAnswers.has(ex.id) ? 'Hide Answer' : 'Show Answer'}
+                {revealedAnswers.has(ex.id) ? t('module.hideAnswer') : t('module.showAnswer')}
               </button>
               {ex.explanation && revealedAnswers.has(ex.id) && (
                 <details className="text-sm">
                   <summary className="text-gray-500 dark:text-gray-400 cursor-pointer hover:text-gray-700 dark:hover:text-gray-300">
-                    View Explanation
+                    {t('module.viewExplanation')}
                   </summary>
                   <div className="mt-2 p-3 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded text-gray-700 dark:text-gray-300">
                     {ex.explanation}
@@ -178,17 +192,17 @@ export default function ModulePage() {
             <button
               onClick={() => setEditingNote(idx)}
               className="absolute top-4 right-4 p-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300"
-              title="Add Note"
+              title={t('module.addNote')}
             >
               <FiEdit2 />
             </button>
           )}
           {editingNote === idx && (
             <div className="mt-4 p-4 border border-gray-200 dark:border-gray-800 rounded-lg">
-              <textarea value={noteText} onChange={(e) => setNoteText(e.target.value)} className="w-full p-2 border rounded mb-2" rows={3} placeholder="Write your note..." />
+              <textarea value={noteText} onChange={(e) => setNoteText(e.target.value)} className="w-full p-2 border rounded mb-2" rows={3} placeholder={t('module.writeNote')} />
               <div className="flex gap-2 justify-end">
-                <button onClick={() => setEditingNote(null)} className="btn-secondary">Cancel</button>
-                <button onClick={() => handleAddNote(idx)} className="btn-primary">Save</button>
+                <button onClick={() => setEditingNote(null)} className="btn-secondary">{t('module.cancel')}</button>
+                <button onClick={() => handleAddNote(idx)} className="btn-primary">{t('module.save')}</button>
               </div>
             </div>
           )}
@@ -206,22 +220,22 @@ export default function ModulePage() {
   return (
     <div>
       <div className="mb-6">
-        <h1 className="text-3xl font-bold mb-2">{module.titleCn}</h1>
-        <p className="text-gray-600 dark:text-gray-400">{module.title}</p>
+        <h1 className="text-3xl font-bold mb-2">{lang === 'zh' ? module.titleCn : module.title}</h1>
+        <p className="text-gray-600 dark:text-gray-400">{lang === 'zh' ? module.title : module.titleCn}</p>
       </div>
 
       <div className="grid lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2 space-y-8">
           {moduleExercises.length > 0 && (
             <div className="flex items-center gap-3 p-4 bg-gray-50 dark:bg-gray-800/60 rounded-lg border border-gray-200 dark:border-gray-700">
-              <span className="text-sm font-medium text-gray-600 dark:text-gray-400">Study Mode:</span>
+              <span className="text-sm font-medium text-gray-600 dark:text-gray-400">{t('module.studyMode')}</span>
               <button
                 onClick={() => setPracticeMode('learn-first')}
                 className={`px-3 py-1.5 rounded text-sm font-medium transition ${
                   practiceMode === 'learn-first' ? 'bg-blue-600 text-white' : 'bg-white dark:bg-gray-700 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600'
                 }`}
               >
-                Learn First
+                {t('module.learnFirst')}
               </button>
               <button
                 onClick={() => setPracticeMode('practice-first')}
@@ -229,7 +243,7 @@ export default function ModulePage() {
                   practiceMode === 'practice-first' ? 'bg-blue-600 text-white' : 'bg-white dark:bg-gray-700 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600'
                 }`}
               >
-                Practice First
+                {t('module.practiceFirst')}
               </button>
             </div>
           )}
@@ -239,32 +253,32 @@ export default function ModulePage() {
           {practiceMode === 'learn-first' && renderExercises()}
 
           <div className="card">
-            <h3 className="text-xl font-semibold mb-4">Module Progress</h3>
-            <p className="text-gray-600 dark:text-gray-400 mb-4">Mark this module as complete after finishing all learning content and passage practice.</p>
+            <h3 className="text-xl font-semibold mb-4">{t('module.progress')}</h3>
+            <p className="text-gray-600 dark:text-gray-400 mb-4">{t('module.markCompleteDesc')}</p>
             <button onClick={() => markModuleComplete(moduleId!)} className="btn-primary flex items-center gap-2">
-              <FiCheck />Mark Complete
+              <FiCheck />{t('module.markComplete')}
             </button>
           </div>
         </div>
 
         <div className="space-y-6">
           <div className="card">
-            <h3 className="font-semibold mb-3">Module Info</h3>
+            <h3 className="font-semibold mb-3">{t('module.info')}</h3>
             <ul className="space-y-2 text-sm">
-              <li className="flex justify-between"><span className="text-gray-500 dark:text-gray-400">Unit</span><span>Unit {module.unit}</span></li>
-              <li className="flex justify-between"><span className="text-gray-500 dark:text-gray-400">Est. Time</span><span>{module.estimatedTime}</span></li>
-              <li className="flex justify-between"><span className="text-gray-500 dark:text-gray-400">Prerequisites</span><span>{module.prerequisites?.length ? module.prerequisites.map(p => p.replace('-', '.')).join(', ') : 'None'}</span></li>
-              <li className="flex justify-between"><span className="text-gray-500 dark:text-gray-400">Passage Practice</span><span>{moduleExercises.length} questions</span></li>
+              <li className="flex justify-between"><span className="text-gray-500 dark:text-gray-400">{t('module.unit')}</span><span>{t('module.unitLabel')} {module.unit}</span></li>
+              <li className="flex justify-between"><span className="text-gray-500 dark:text-gray-400">{t('module.estTime')}</span><span>{module.estimatedTime}</span></li>
+              <li className="flex justify-between"><span className="text-gray-500 dark:text-gray-400">{t('module.prerequisites')}</span><span>{module.prerequisites?.length ? module.prerequisites.map(p => p.replace('-', '.')).join(', ') : t('module.none')}</span></li>
+              <li className="flex justify-between"><span className="text-gray-500 dark:text-gray-400">{t('module.passagePracticeCount')}</span><span>{moduleExercises.length} {t('module.questions')}</span></li>
               <li className="flex justify-between">
-                <span className="text-gray-500 dark:text-gray-400">Skill Tags</span>
-                <div className="flex flex-wrap gap-1 justify-end">{module.tags?.map(tag => <span key={tag} className="px-2 py-0.5 bg-gray-100 dark:bg-gray-800 rounded text-xs">{tag}</span>)}</div>
+                <span className="text-gray-500 dark:text-gray-400">{t('module.skillTags')}</span>
+                <div className="flex flex-wrap gap-1 justify-end">{module.tags?.map((tag: string) => <span key={tag} className="px-2 py-0.5 bg-gray-100 dark:bg-gray-800 rounded text-xs">{tag}</span>)}</div>
               </li>
             </ul>
           </div>
           <div className="card">
-            <h3 className="font-semibold mb-3">Learning Objectives</h3>
+            <h3 className="font-semibold mb-3">{t('module.learningObjectives')}</h3>
             <ul className="space-y-2 text-sm">
-              {module.learningObjectives?.map((obj, i) => <li key={i} className="flex items-start gap-2"><span className="text-green-500 mt-0.5">•</span><span>{obj}</span></li>)}
+              {module.learningObjectives?.map((obj: string, i: number) => <li key={i} className="flex items-start gap-2"><span className="text-green-500 mt-0.5">•</span><span>{obj}</span></li>)}
             </ul>
           </div>
         </div>

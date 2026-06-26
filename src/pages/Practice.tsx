@@ -1,9 +1,13 @@
 import { useState } from 'react'
-import { exercises } from '../data/exercises'
+import { useExercises, useModules, useLanguage } from '../i18n/dataAccess'
+import { translations } from '../i18n/translations'
 import { useStore } from '../store/useStore'
-import { modules } from '../data/modules'
 
 export default function Practice() {
+  const lang = useLanguage()
+  const t = (key: keyof typeof translations) => translations[key]?.[lang] ?? key
+  const exercises = useExercises()
+  const modules = useModules()
   const [filterModule, setFilterModule] = useState('all')
   const [filterType, setFilterType] = useState('all')
   const { exerciseResults, addExerciseResult } = useStore()
@@ -16,7 +20,7 @@ export default function Practice() {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold mb-6">Practice Center</h1>
+      <h1 className="text-3xl font-bold mb-6">{t('practice.title')}</h1>
 
       <div className="flex gap-4 mb-6">
         <select
@@ -24,9 +28,9 @@ export default function Practice() {
           onChange={(e) => setFilterModule(e.target.value)}
           className="px-3 py-2 border rounded-lg bg-white dark:bg-gray-800 dark:border-gray-700"
         >
-          <option value="all">All Modules</option>
+          <option value="all">{t('practice.allModules')}</option>
           {modules.map((m) => (
-            <option key={m.id} value={m.id}>{m.titleCn}</option>
+            <option key={m.id} value={m.id}>{lang === 'zh' ? m.titleCn : m.title}</option>
           ))}
         </select>
         <select
@@ -34,28 +38,30 @@ export default function Practice() {
           onChange={(e) => setFilterType(e.target.value)}
           className="px-3 py-2 border rounded-lg bg-white dark:bg-gray-800 dark:border-gray-700"
         >
-          <option value="all">All Types</option>
-          <option value="choice">Multiple Choice</option>
-          <option value="multiselect">Multiple Select</option>
-          <option value="fill">Fill in the Blank</option>
-          <option value="short_answer">Short Answer</option>
+          <option value="all">{t('practice.allTypes')}</option>
+          <option value="choice">{t('practice.multipleChoice')}</option>
+          <option value="multiselect">{t('practice.multipleSelect')}</option>
+          <option value="fill">{t('practice.fillIn')}</option>
+          <option value="short_answer">{t('practice.shortAnswer')}</option>
         </select>
       </div>
 
       <div className="space-y-4">
         {filtered.map((ex) => {
           const result = exerciseResults[ex.id]
-          return <ExerciseCard key={ex.id} exercise={ex} result={result} onSubmit={addExerciseResult} />
+          return <ExerciseCard key={ex.id} exercise={ex} result={result} onSubmit={addExerciseResult} lang={lang} t={t} />
         })}
       </div>
     </div>
   )
 }
 
-function ExerciseCard({ exercise, result, onSubmit }: any) {
+function ExerciseCard({ exercise, result, onSubmit, lang, t }: any) {
   const [answer, setAnswer] = useState('')
   const [multiAnswer, setMultiAnswer] = useState<string[]>([])
   const [submitted, setSubmitted] = useState(!!result)
+
+  const typeLabelKey = `type.${exercise.type}` as keyof typeof translations
 
   const handleSubmit = () => {
     let correct = false
@@ -95,7 +101,7 @@ function ExerciseCard({ exercise, result, onSubmit }: any) {
     <div className="card">
       <div className="flex justify-between items-start mb-3">
         <span className="text-xs font-medium px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded">
-          {exercise.typeLabel}
+          {t(typeLabelKey)}
         </span>
         <span className="text-xs text-gray-500 dark:text-gray-400">{exercise.moduleTitle}</span>
       </div>
@@ -168,13 +174,13 @@ function ExerciseCard({ exercise, result, onSubmit }: any) {
           disabled={submitted}
           className="w-full p-3 border rounded-lg mb-4 bg-white dark:bg-gray-800 dark:border-gray-700"
           rows={3}
-          placeholder="Type your answer..."
+          placeholder={t('practice.typeAnswer')}
         />
       )}
 
       {!submitted ? (
         <button onClick={handleSubmit} className="btn-primary" disabled={!canSubmit}>
-          Submit
+          {t('practice.submit')}
         </button>
       ) : (
         <div className={`p-3 rounded-lg ${
@@ -182,9 +188,9 @@ function ExerciseCard({ exercise, result, onSubmit }: any) {
             ? 'bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800'
             : 'bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800'
         }`}>
-          <p className="font-medium">{result?.correct ? 'Correct!' : 'Incorrect'}</p>
-          <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Your answer: {result?.userAnswer}</p>
-          <p className="text-sm text-gray-600 dark:text-gray-400">Correct answer: {exercise.answer}</p>
+          <p className="font-medium">{result?.correct ? t('practice.correct') : t('practice.incorrect')}</p>
+          <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">{t('practice.yourAnswer')} {result?.userAnswer}</p>
+          <p className="text-sm text-gray-600 dark:text-gray-400">{t('practice.correctAnswer')} {exercise.answer}</p>
           {exercise.explanation && (
             <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">{exercise.explanation}</p>
           )}
