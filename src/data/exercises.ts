@@ -13,548 +13,520 @@ export interface Exercise {
 }
 
 export const exercises: Exercise[] = [
-  // ===== Unit 1: Fiction =====
+  // ================================================================
+  // Module 1.5 — Context Clues: Text A — Appointment with Love (5 Qs)
+  // ================================================================
+  {
+    id: 'ex-texta-01',
+    moduleId: '1-5',
+    moduleTitle: 'Context Clues',
+    type: 'choice',
+    typeLabel: 'Multiple Choice',
+    passageTitle: `Text A: Appointment with Love`,
+    passage: `Six minutes to six, said the great round clock over the information booth in Grand Central Station. The tall young Army lieutenant who had just come from the direction of the tracks lifted his sunburned face, and his eyes narrowed to note the exact time. His heart was pounding with a beat that shocked him because he could not control it. In six minutes, he would see the woman who had filled such a special place in his life for the past thirteen months, the woman he had never seen, yet whose written words had been with him and sustained him unfailingly.`,
+    question: `How did Blanchard first meet Hollis Meynell?`,
+    answer: `D`,
+    options: ["At a dinner party", "Through a radio program", "At the army base", "By exchanging letters"],
+    explanation: `They met through correspondence after Blanchard read Meynell's notes in a book during his training for combat flight.`
+  },
+  {
+    id: 'ex-texta-02',
+    moduleId: '1-5',
+    moduleTitle: 'Context Clues',
+    type: 'choice',
+    typeLabel: 'Multiple Choice',
+    passageTitle: `Text A: Appointment with Love`,
+    passage: `In one of his letters, he had confessed to her that he often felt fear, and only a few days before this battle, he had received her answer: "Of course you fear... all brave men do. Didn't King David know fear? That's why he wrote the Twenty-third Psalm. Next time you doubt yourself, I want you to hear my voice reciting to you: 'Yea, though I walk through the valley of the shadow of death, I shall fear no evil, for Thou art with me.'" And he had remembered; he had heard her imagined voice, and it had renewed his strength and skill.`,
+    question: `Why did Meynell refuse to send her photograph?`,
+    answer: 'B',
+    options: ["She was too shy", "She believed appearance was irrelevant to their connection", "She didn\'t have a recent one", "She wanted to test his loyalty"],
+    explanation: `Meynell said that if Blanchard's feelings had any reality, her appearance wouldn't matter; what she looked like was insignificant.`
+  },
+  {
+    id: 'ex-texta-03',
+    moduleId: '1-5',
+    moduleTitle: 'Context Clues',
+    type: 'choice',
+    typeLabel: 'Multiple Choice',
+    passageTitle: `Text A: Appointment with Love`,
+    passage: `Under the immense, starred roof, people were walking fast, like threads of color being woven into a gray web. A girl passed close to him, and Lieutenant Blandford started. She was wearing a red rose in the lapel of her coat. Almost uncontrollably he made one step closer to her, and just then he saw Hollis Meynell.`,
+    question: `What signal did Meynell use to identify herself?`,
+    answer: 'B',
+    options: ["A white rose", "A red rose on her coat", "A blue scarf", "A book in her hand"],
+    explanation: `She said she would wear a red rose so that Blanchard could recognize her at Grand Central Station.`
+  },
+  {
+    id: 'ex-texta-04',
+    moduleId: '1-5',
+    moduleTitle: 'Context Clues',
+    type: 'choice',
+    typeLabel: 'Multiple Choice',
+    passageTitle: `Text A: Appointment with Love`,
+    passage: `The girl in the green suit was walking quickly away. Blandford felt as though he were split in two, so keen was his desire to follow her, and yet so deep was his longing for the woman whose spirit had truly companioned and upheld his own. He could not see the woman before him now without seeing Hollis Meynell in his mind's eye; the one whose face, whose real living face, he had often imagined and whose spirit and whose intellect had been his faithful friend.`,
+    question: `Who did Blanford approach when he arrived at the station?`,
+    answer: `A`,
+    options: ["The young woman in green", "The older woman in the felt hat", "A porter", "Hollis Meynell herself"],
+    explanation: `A tall young lady in a pale green suit approached him with a welcoming smile, and he was drawn to her beauty before realizing she was not wearing a rose.`
+  },
+  {
+    id: 'ex-texta-05',
+    moduleId: '1-5',
+    moduleTitle: 'Context Clues',
+    type: 'choice',
+    typeLabel: 'Multiple Choice',
+    passageTitle: `Text A: Appointment with Love`,
+    passage: `"I'm Lieutenant John Blandford, and you—you are Miss Meynell. I'm so glad you could meet me; may—may I take you to dinner?"
 
-  // 1.1 Schema
-  {
-    id: '1-1-ex01', moduleId: '1-1', moduleTitle: '1.1 图式认知',
-    type: 'choice', typeLabel: '选择题',
-    passageTitle: 'Passage A',
-    passage: `The door creaked open, revealing a long, dimly lit corridor. Dust motes danced in the thin slivers of light that pierced through the boarded windows. At the far end, a grandfather clock ticked steadily, its pendulum swinging with a mechanical certainty that seemed to mock the eerie silence of the abandoned mansion. Sarah took a deep breath and stepped inside.`,
-    question: 'What genre does this passage most likely belong to?',
-    answer: 'Fiction (Gothic/Suspense)',
-    options: ['Argumentative Essay', 'Expository Writing', 'Fiction (Gothic/Suspense)', 'News Report'],
-    explanation: 'The creaking door, dimly lit corridor, dust motes, and abandoned mansion activate the Gothic schema: a dark, suspenseful setting and a character venturing into danger.',
-  },
-  {
-    id: '1-1-ex02', moduleId: '1-1', moduleTitle: '1.1 图式认知',
-    type: 'choice', typeLabel: '选择题',
-    passageTitle: 'Passage B',
-    passage: `The Industrial Revolution marked a significant shift in human history, transforming agrarian societies into industrial powerhouses. Beginning in Britain in the late 18th century, this period saw the introduction of mechanized manufacturing, steam power, and the factory system. These innovations fundamentally altered the nature of work, urban life, and global trade.`,
-    question: 'What genre does this passage most likely belong to?',
-    answer: 'Expository Writing',
-    options: ['Fiction', 'Argumentative Essay', 'Expository Writing', 'Poetry'],
-    explanation: 'The passage opens with objective factual statements about the Industrial Revolution, with no characters or plot. This is a textbook example of expository schema: information presented neutrally to explain a topic.',
-  },
-  {
-    id: '1-1-ex03', moduleId: '1-1', moduleTitle: '1.1 图式认知',
-    type: 'choice', typeLabel: '选择题',
-    passageTitle: 'Passage C',
-    passage: `While many argue that social media has connected the world like never before, a closer examination reveals a more troubling reality. Studies show that excessive social media use correlates with increased rates of anxiety and depression among adolescents. Moreover, the curated nature of online profiles often leads to unrealistic comparisons. Therefore, we must reconsider our uncritical embrace of these platforms.`,
-    question: 'What genre does this passage most likely belong to?',
-    answer: 'Argumentative Essay',
-    options: ['Expository Writing', 'Fiction', 'Argumentative Essay', 'Letter'],
-    explanation: '"While many argue..." → "a closer examination reveals..." → "Therefore, we must reconsider..." — this is the classic argumentative schema: present an opposing view, refute it with evidence, and conclude with a call to action.',
-  },
-
-  // 1.2 Narrative Structure
-  {
-    id: '1-2-ex01', moduleId: '1-2', moduleTitle: '1.2 叙事结构',
-    type: 'choice', typeLabel: '选择题',
-    passageTitle: 'Appointment with Love (excerpt)',
-    passage: `Six minutes to six, said the great round clock over the information booth in Grand Central Station. The tall young Army lieutenant who had just come from the direction of the tracks lifted his sunburned face, and his eyes narrowed to note the exact time. His heart was pounding with a beat that shocked him because he could not control it. In six minutes he would see the woman who had filled such a special place in his life for the past thirteen months, the woman he had never seen, yet whose written words had been with him and sustained him unfailingly.`,
-    question: 'Which element of narrative structure does this passage primarily establish?',
-    answer: 'Setting',
-    options: ['Setting', 'Conflict', 'Climax', 'Resolution'],
-    explanation: 'The opening explicitly establishes time (six minutes to six), place (Grand Central Station), and initial character details (young Army lieutenant). This is classic Setting (Exposition).',
-  },
-  {
-    id: '1-2-ex02', moduleId: '1-2', moduleTitle: '1.2 叙事结构',
-    type: 'short_answer', typeLabel: '简答题',
-    passageTitle: 'Appointment with Love (excerpt)',
-    passage: `Six minutes to six... In six minutes he would see the woman who had filled such a special place in his life for the past thirteen months, the woman he had never seen, yet whose written words had been with him and sustained him unfailingly.`,
-    question: 'What is the Conflict implied in this passage?',
-    answer: 'Internal conflict: the protagonist has built a deep emotional bond through 13 months of letters with a woman he has never met. The imminent meeting creates tension between his idealized image and the unknown reality.',
-    explanation: 'The conflict is John\'s internal anxiety — thirteen months of letters have created a profound emotional connection, yet he has never seen her face. The meeting could shatter his idealized image.',
-  },
-  {
-    id: '1-2-ex03', moduleId: '1-2', moduleTitle: '1.2 叙事结构',
-    type: 'fill', typeLabel: '填空题',
-    passageTitle: 'The Tell-Tale Heart (excerpt)',
-    passage: `True! — nervous — very, very dreadfully nervous I had been and am; but why will you say that I am mad? The disease had sharpened my senses — not destroyed — not dulled them. Above all was the sense of hearing acute. I heard all things in the heaven and in the earth. I heard many things in hell. How, then, am I mad? Hearken! and observe how healthily — how calmly I can tell you the whole story.`,
-    question: 'The narrator is desperately trying to establish an image of being _____. (one word, in English)',
-    answer: 'sane',
-    explanation: 'The narrator repeatedly argues against the accusation of madness ("why will you say that I am mad?"), insisting that his senses have been "sharpened" and that he can tell the story "healthily" and "calmly." However, the very excess of his protestations reveals his insanity — this is the hallmark of an unreliable narrator.',
-  },
-  {
-    id: '1-2-ex04', moduleId: '1-2', moduleTitle: '1.2 叙事结构',
-    type: 'short_answer', typeLabel: '简答题',
-    passageTitle: 'The Tell-Tale Heart',
-    passage: `True! — nervous — very, very dreadfully nervous I had been and am; but why will you say that I am mad? ... I heard all things in the heaven and in the earth. I heard many things in hell. How, then, am I mad?`,
-    question: 'Which stage of narrative structure does this passage belong to, and why?',
-    answer: 'Exposition (Opening). This is the first paragraph of the story. It establishes the narrator\'s voice, tone, and psychological state, setting the stage before the main action (the murder) unfolds.',
-    explanation: 'This is the opening paragraph — Exposition. It introduces the narrator\'s unstable voice and sets up the psychological framework. The main conflict (the narrator\'s obsession with the old man\'s eye and the subsequent murder) has not yet begun.',
+The woman's face broadened into a tolerant smile. "I don't know what this is all about, son," she answered, "that young lady in the green suit who just went by—she begged me to wear this rose on my coat. She said if you were to ask me out to dinner, I should tell you that she's waiting for you in that big restaurant across the street. She said it was some kind of a test."'`,
+    question: `What was the real test that Meynell set for Blanford?`,
+    answer: 'B',
+    options: ["Whether he could find the station", "Whether he would accept her regardless of appearance", "Whether he would wait for her", "Whether he remembered the date"],
+    explanation: `The older woman wearing the red rose was a test to see if Blanford would honor their connection despite physical appearance.`
   },
 
-  // 1.3 Anticipate Outcome
+  // ================================================================
+  // Module 1.5 — Context Clues: Text B — Feuille d\'Album (3 Qs)
+  // ================================================================
   {
-    id: '1-3-ex01', moduleId: '1-3', moduleTitle: '1.3 预测结局',
-    type: 'short_answer', typeLabel: '简答题',
-    passageTitle: 'The Open Window (excerpt — paragraph 1)',
-    passage: `"My aunt will be down presently, Mr. Nuttel," said a very self-possessed young lady of fifteen; "in the meantime you must try and put up with me." Framton Nuttel endeavoured to say the correct something which should duly flatter the niece of the moment without unduly discounting the aunt that was to come.`,
-    question: 'Based on this opening paragraph, predict: (1) Where is the story taking place? (2) What is likely Framton\'s purpose for being there?',
-    answer: '(1) At the home of the aunt (a private residence). (2) A social visit — he is likely meeting the aunt for the first time (his nervous attempt to say "the correct something" suggests unfamiliarity and social anxiety).',
-    explanation: 'The formal address "Mr. Nuttel," the reference to "My aunt," and Framton\'s struggle to find the right words all suggest he is a first-time visitor waiting for the hostess. His nervous condition (revealed later as a "nerve cure") frames his vulnerability.',
+    id: 'ex-textb-01',
+    moduleId: '1-5',
+    moduleTitle: 'Context Clues',
+    type: 'choice',
+    typeLabel: 'Multiple Choice',
+    passageTitle: "Text B: Feuille d\'Album",
+    passage: `He really was an impossible person. Too shy altogether. With absolutely nothing to say for himself. And such a weight. Once he was in your studio he never knew when to go, but would sit on and on until you nearly screamed, and burned to throw something enormous after him when he did finally blush his way out—something like the tortoise stove. The strange thing was that at first sight he looked most interesting. Everybody agreed about that.`,
+    question: `What is the central characteristic of Ian French?`,
+    answer: 'B',
+    options: ["He is boastful and outgoing", "He is emotionally detached from the world around him", "He is ambitious and calculating", "He is desperate for attention"],
+    explanation: `Ian is portrayed as someone who observes life from a distance, emotionally cut off from the world and people around him.`
   },
   {
-    id: '1-3-ex02', moduleId: '1-3', moduleTitle: '1.3 预测结局',
-    type: 'fill', typeLabel: '填空题',
-    passageTitle: 'The Open Window (continued)',
-    passage: `"You may wonder why we keep that window wide open on an October afternoon," said the niece, indicating a large French window that opened on to a lawn. "Out through that window, three years ago to a day, her husband and her two young brothers went off for their day's shooting. They never came back. In crossing the moor to their favourite snipe-shooting ground they were all three engulfed in a treacherous piece of bog."`,
-    question: 'Based on the earlier description of the niece as "very self-possessed," what is the most likely expression on her face as she tells this story? (one word, in English)',
-    answer: 'calm',
-    explanation: 'The phrase "very self-possessed" signals that the niece is extraordinarily composed. She is relating a horrific tragedy with unsettling calm — a contrast that should alert the careful reader to possible deception.',
+    id: 'ex-textb-02',
+    moduleId: '1-5',
+    moduleTitle: 'Context Clues',
+    type: 'choice',
+    typeLabel: 'Multiple Choice',
+    passageTitle: "Text B: Feuille d\'Album",
+    passage: `When questioned about his work Ian said very little. "I am trying to paint," he would murmur, blushing. It was all very well for anyone to say that he was an impossible person. But the curious thing was that nobody could be more certain of that than he was himself. He knew he was impossible. Deep down, he had a kind of hopeless adoration for the young women who passed by his studio, but he could never think of anything to say to them.`,
+    question: `What does Ian's meticulous grooming suggest about his character?`,
+    answer: 'B',
+    options: ["He is vain and self-absorbed", "He maintains external order as a defense against emotional engagement", "He wants to attract women", "He is preparing for a job interview"],
+    explanation: `Ian's obsession with appearance and grooming represents a controlled surface beneath which real emotions are suppressed.`
   },
   {
-    id: '1-3-ex03', moduleId: '1-3', moduleTitle: '1.3 预测结局',
-    type: 'choice', typeLabel: '选择题',
-    passageTitle: 'The Open Window (continued)',
-    passage: `"Poor dear aunt, she has often told me how they went out, her husband with his white waterproof coat over his arm ... It had been that dreadful wet summer, you know, and places that were safe in other years gave way suddenly without warning. Their bodies were never recovered."`,
-    question: 'Based on the niece\'s story, predict how Framton will most likely react when the aunt appears.',
-    answer: 'He will feel sympathy and deep unease toward the aunt',
-    options: [
-      'He will leave immediately',
-      'He will feel sympathy and deep unease toward the aunt',
-      'He will dismiss the story entirely',
-      'He will laugh, assuming it is a joke',
-    ],
-    explanation: 'Framton is a first-time visitor undergoing a nerve cure. Faced with a woman who has supposedly lost her entire family in a tragic accident, his most natural response is discomfort and sympathy — which the niece exploits.',
-  },
-  {
-    id: '1-3-ex04', moduleId: '1-3', moduleTitle: '1.3 预测结局',
-    type: 'short_answer', typeLabel: '简答题',
-    passageTitle: 'The Open Window (ending)',
-    passage: `In the deepening twilight three figures were walking across the lawn towards the window; they all carried guns under their arms... Framton grabbed wildly at his stick and hat; the hall-door, the gravel-drive, and the front gate were dimly noted stages in his headlong retreat. A cyclist coming along the road had to run into the hedge to avoid imminent collision.`,
-    question: 'Why does Framton flee in terror? What had the niece told him earlier?',
-    answer: 'The niece had fabricated a story that the three men (the aunt\'s husband and two brothers) died in a bog three years ago. When Framton sees these supposedly dead men approaching, he believes he is seeing ghosts. In reality, the niece made up the entire tragedy — the men were never dead.',
-    explanation: 'This is the classic schema manipulation at work: the niece planted a story that activated Framton\'s "tragic widow" schema, causing him to interpret the appearance of three living men as supernatural. "The Open Window" = the schema through which Framton was tricked. This is an example of failed prediction: both the reader and Framton are led by the niece\'s story to make a catastrophically wrong prediction.',
-  },
-
-  // 1.4 Figure/Ground
-  {
-    id: '1-4-ex01', moduleId: '1-4', moduleTitle: '1.4 图形/背景分析',
-    type: 'choice', typeLabel: '选择题',
-    passageTitle: 'The Yellow Wallpaper (excerpt)',
-    passage: `He is very careful and loving, and hardly lets me stir without special direction. I have a schedule prescription for each hour in the day; he takes all care from me, and so I feel basely ungrateful not to value it more. He said we came here solely on my account, that I was to have perfect rest and all the air I could get.`,
-    question: 'What is the Figure/Ground relationship between the narrator and her social environment?',
-    answer: 'Contrast — she outwardly complies but inwardly resists',
-    options: ['Blend', 'Contrast', 'Transition', 'Cannot determine'],
-    explanation: 'The narrator says "he is very careful and loving" on the surface, but the phrase "basely ungrateful" reveals her suppressed resentment. She stands in stark contrast (Contrast) to the Ground of a society that expects her to be a compliant, grateful patient.',
-  },
-  {
-    id: '1-4-ex02', moduleId: '1-4', moduleTitle: '1.4 图形/背景分析',
-    type: 'short_answer', typeLabel: '简答题',
-    passageTitle: 'The Yellow Wallpaper (excerpt)',
-    passage: `John is a physician, and perhaps — (I would not say it to a living soul, of course, but this is dead paper and a great relief to my mind) — perhaps that is one reason I do not get well faster. You see, he does not believe I am sick!`,
-    question: 'How does the author use "Show, don\'t tell" to convey the narrator\'s sense of oppression? Identify specific textual evidence.',
-    answer: '"this is dead paper and a great relief to my mind" — she calls the paper "dead" because only dead things can receive her confession, implying no living person listens to her. The parenthetical asides "(I would not say it to a living soul)" reveal her complete isolation: she has no living confidante.',
-    explanation: 'Instead of directly stating "she feels oppressed and unheard," Gilman shows it through the narrator\'s secret confession to "dead paper" and the parenthetical whispers that can only be shared with the reader. This is textbook "Show, don\'t tell."',
+    id: 'ex-textb-03',
+    moduleId: '1-5',
+    moduleTitle: 'Context Clues',
+    type: 'choice',
+    typeLabel: 'Multiple Choice',
+    passageTitle: "Text B: Feuille d\'Album",
+    passage: `The girl across the street was about sixteen, with dark hair, and she wore a red dress. She lived with an old woman who was probably her grandmother. Every morning at a certain hour, she opened the shutters of the window opposite and leaned out. She was always alone. And Ian, who had never been able to stir from his studio, found himself waiting for that moment, standing just inside his own dark room, watching. Once he nearly waved to her, but his hand stopped, frozen at his side.`,
+    question: `What finally breaks through Ian's emotional isolation?`,
+    answer: 'B',
+    options: ["A letter from home", "The girl across the street", "A conversation with his coworkers", "A painting he sees in a gallery"],
+    explanation: `The girl across the street who always wears a red dress eventually triggers a response in Ian, representing the first time his emotional walls are breached.`
   },
 
-  // 1.5 Context Clues
+  // ================================================================
+  // Module 1.6 — Narrative Perspective: Text C — The Tell-Tale Heart (1 Q)
+  // ================================================================
   {
-    id: '1-5-ex01', moduleId: '1-5', moduleTitle: '1.5 上下文猜词',
-    type: 'choice', typeLabel: '选择题',
-    passageTitle: 'The Most Dangerous Game (excerpt)',
-    passage: `He was finding the general a most thoughtful and affable host, a true cosmopolite. But there was one small trait of the general's that made Rainsford uncomfortable. Whenever the general smiled, his lips drew back from his teeth in a way that was more predatory than genial.`,
-    question: 'What does "predatory" most likely mean in this context?',
-    answer: 'Like a predator — threatening and carnivorous',
-    options: ['Friendly and warm', 'Like a predator — threatening and carnivorous', 'Intellectual and wise', 'Humorous and witty'],
-    explanation: 'Comparison-Contrast clue: "more predatory than genial" — "genial" means friendly/pleasant, so "predatory" must be its opposite. The contrast structure reveals the meaning: predatory = like a hunter seeking prey.',
-  },
-  {
-    id: '1-5-ex02', moduleId: '1-5', moduleTitle: '1.5 上下文猜词',
-    type: 'fill', typeLabel: '填空题',
-    passageTitle: 'Of Mice and Men (excerpt)',
-    passage: `Lennie dabbled his big paw in the water and wiggled his fingers so the water arose in little splashes; rings widened across the pool to the other side and came back again. Lennie watched them go. "Look, George. Look what I done."`,
-    question: 'What does "dabbled" most likely mean? (one English verb)',
-    answer: 'splashed',
-    explanation: 'Co-occurrence clue: the subsequent description — "wiggled his fingers" and "water arose in little splashes" — directly explains the action. Experience clue: the image of "big paw" + splashing water suggests playful splashing or paddling in water.',
+    id: 'ex-textc-01',
+    moduleId: '1-6',
+    moduleTitle: 'Narrative Perspective: Manipulation',
+    type: 'choice',
+    typeLabel: 'Multiple Choice',
+    passageTitle: `Text C: The Tell-Tale Heart`,
+    passage: `Object there was none. Passion there was none. I loved the old man. He had never wronged me. He had never given me insult. For his gold I had no desire. I think it was his eye! yes, it was this! He had the eye of a vulture—a pale blue eye, with a film over it. Whenever it fell upon me, my blood ran cold; and so by degrees—very gradually—I made up my mind to take the old man's life, and thus rid myself of the eye forever.`,
+    question: `What is the narrator's stated reason for killing the old man?`,
+    answer: 'B',
+    options: ["He wanted his money", "He could not stand the old man\'s \"evil eye\"", "He believed the old man was a threat to society", "Revenge for a past wrong"],
+    explanation: `The narrator explicitly states he loved the old man but was driven to murder by the old man's 'vulture eye' — a pale blue eye with a film over it.`
   },
 
-  // 1.6 Narrative Perspective
+  // ================================================================
+  // Module 1.5 — Context Clues (3 Qs)
+  // ================================================================
   {
-    id: '1-6-ex01', moduleId: '1-6', moduleTitle: '1.6 叙事视角',
-    type: 'choice', typeLabel: '选择题',
-    passageTitle: 'The Tell-Tale Heart (excerpt)',
-    passage: `Now this is the point. You fancy me mad. Madmen know nothing. But you should have seen me. You should have seen how wisely I proceeded — with what caution — with what foresight — with what dissimulation I went to work! I was never kinder to the old man than during the whole week before I killed him.`,
-    question: 'The narrator claims he is "wise" and "cautious." What does the evidence actually suggest about his mental state?',
-    answer: 'He is insane — his "wisdom" and "caution" are proof of his madness',
-    options: [
-      'He is genuinely wise and cautious',
-      'He is insane — his "wisdom" and "caution" are proof of his madness',
-      'He simply misunderstands the old man\'s intentions',
-      'He originally intended to help the old man but made a mistake',
-    ],
-    explanation: 'The narrator uses claims of "wisdom" and "caution" to refute the charge of madness, but the very behavior he describes — being excessively kind to a man for an entire week just to murder him — is itself a twisted definition of "sanity." This is a textbook example of an unreliable narrator.',
+    id: 'ex-context-01',
+    moduleId: '1-5',
+    moduleTitle: 'Context Clues',
+    type: 'choice',
+    typeLabel: 'Multiple Choice',
+    question: `What does 'baffled' mean in the sentence: "We are baffled. There are just too many new words for us to follow the plot"?`,
+    answer: `confused, puzzled, unable to understand`,
+    explanation: `The cause (too many new words) leads to the effect of being unable to follow the plot. 'Baffled' describes this state of confusion using a cause-effect context clue.`
   },
   {
-    id: '1-6-ex02', moduleId: '1-6', moduleTitle: '1.6 叙事视角',
-    type: 'short_answer', typeLabel: '简答题',
-    passageTitle: 'The Tell-Tale Heart (excerpt)',
-    passage: `I was never kinder to the old man than during the whole week before I killed him. And every night, about midnight, I turned the latch of his door and opened it — oh, so gently!`,
-    question: 'Is this narrator intentionally unreliable or unintentionally unreliable? Why?',
-    answer: 'Unintentionally unreliable. The narrator genuinely believes he is not mad — he truly thinks his actions are "wise" and "cautious" rather than deliberately deceiving the reader.',
-    explanation: 'Key distinction: intentionally unreliable = the narrator knows they are lying (e.g., Lolita\'s Humbert); unintentionally unreliable = the narrator distorts reality without self-awareness due to mental illness, age, or bias. Poe\'s narrator belongs to the latter category.',
+    id: 'ex-context-02',
+    moduleId: '1-5',
+    moduleTitle: 'Context Clues',
+    type: 'choice',
+    typeLabel: 'Multiple Choice',
+    question: `What does 'indolently' mean in the sentence: "She walked indolently along, with a mind at rest"?`,
+    answer: `lazily, slowly, without hurry`,
+    explanation: `The phrase 'with a mind at rest' restates the meaning of 'indolently,' suggesting relaxed, unhurried movement. This is a synonym/restatement context clue.`
   },
   {
-    id: '1-6-ex03', moduleId: '1-6', moduleTitle: '1.6 叙事视角',
-    type: 'fill', typeLabel: '填空题',
-    passageTitle: 'The Tell-Tale Heart (excerpt)',
-    passage: `Object there was none. Passion there was none. I loved the old man. He had never wronged me. He had never given me insult. For his gold I had no desire. I think it was his eye! Yes, it was this! He had the eye of a vulture — a pale blue eye, with a film over it.`,
-    question: 'What reason does the narrator give for the murder? (answer in English)',
-    answer: 'the old man\'s eye (the vulture eye)',
-    explanation: '"I think it was his eye!" — the narrator claims he loved the old man and had no motive for murder except the "vulture eye." This absurd justification (murdering someone because of their eye) is the defining mark of the unreliable narrator.',
-  },
-  {
-    id: '1-6-ex04', moduleId: '1-6', moduleTitle: '1.6 叙事视角',
-    type: 'choice', typeLabel: '选择题',
-    passageTitle: 'To Kill a Mockingbird (excerpt)',
-    passage: `When he was nearly thirteen, my brother Jem got his arm badly broken at the elbow. When it healed, and Jem's fears of never being able to play football were assuaged, he was seldom self-conscious about his injury.`,
-    question: 'What narrative perspective is used in this passage?',
-    answer: 'First-person peripheral / retrospective',
-    options: ['Third-person omniscient', 'First-person protagonist', 'First-person peripheral / retrospective', 'Third-person limited'],
-    explanation: '"My brother Jem" indicates the narrator is Jem\'s sister (Scout), recalling a childhood event. This is first-person peripheral/retrospective: the "I" narrator is a supporting character in the story, observing her brother Jem.',
+    id: 'ex-context-03',
+    moduleId: '1-5',
+    moduleTitle: 'Context Clues',
+    type: 'choice',
+    typeLabel: 'Multiple Choice',
+    question: `What does 'magnanimity' mean in: "a display of magnanimity, too, that was surprising in one so young"?`,
+    answer: `generosity of spirit; being above petty concerns`,
+    explanation: `The girl overlooked her own striking appearance while being astonished at the narrator's — showing she was generous in not considering herself special. This is an example/illustration context clue.`
   },
 
-  // 1.7 Elegant Variation
+  // ================================================================
+  // Module 1.3 — Anticipate Outcome: Practice 1 (5 Qs)
+  // ================================================================
   {
-    id: '1-7-ex01', moduleId: '1-7', moduleTitle: '1.7 优雅变体',
-    type: 'choice', typeLabel: '选择题',
-    passageTitle: 'A Tale of Two Cities (excerpt)',
-    passage: `A large cask of wine had been dropped and broken, in the street. The accident had happened in getting it out of a cart ... All the people within reach had suspended their business, or their idleness, to run to the spot and drink the wine. The rough, irregular stones of the street, pointing every way, and designed, one might have thought, expressly to lame all living creatures that approached them, had dammed it into little pools.`,
-    question: 'What does "it" refer to in "had dammed it into little pools"?',
-    answer: 'the wine',
-    options: ['the street', 'the cask', 'the wine', 'the cart'],
-    explanation: '"had dammed it into little pools" — what was dammed into little pools? The wine. The rough stones of the street prevented the wine from flowing away, forming small puddles. This is a distant pronominal reference.',
+    id: 'ex-p1-01',
+    moduleId: '1-3',
+    moduleTitle: 'Anticipate the Outcome While Reading',
+    type: 'choice',
+    typeLabel: 'Multiple Choice',
+    passageTitle: `Practice 1: A Connecticut Yankee in King Arthur's Court`,
+    passage: `"CAMELOT—Camelot," said I to myself. "I don't seem to remember hearing of it before. Name of the asylum, likely."
+
+It was a soft, reposeful summer landscape, as lovely as a dream, and as lonesome as Sunday. The air was full of the smell of flowers, and the buzzing of insects, and the twittering of birds, and there were no people, no wagons, there was no stir of life, nothing going on. The road was mainly a winding path with hoof-prints in it, and now and then a faint trace of wheels on either side in the grass—wheels that apparently had a tire as broad as one's hand.`,
+    question: `Setting: Where and when does this passage take place?`,
+    answer: `A dreamlike, medieval-style landscape in summer — a quiet countryside with thatched cabins, crooked alleys, and a town with stone houses.`,
+    explanation: `The description of thatched cabins, winding paths, lack of modern infrastructure, and the noble cavalcade with plumed helmets suggests a medieval setting.`
   },
   {
-    id: '1-7-ex02', moduleId: '1-7', moduleTitle: '1.7 优雅变体',
-    type: 'fill', typeLabel: '填空题',
-    passageTitle: 'A Tale of Two Cities (excerpt)',
-    passage: `A large cask of wine had been dropped and broken, in the street. ... All the people within reach had suspended their business, or their idleness, to run to the spot and drink the wine. ... Some men kneeled down, made scoops of their two hands joined, and sipped, or tried to help women, who bent over their shoulders, to sip, before the liquid had all run out between their fingers.`,
-    question: 'In this passage, what is the elegant variation used for "the wine"?',
-    answer: 'the liquid',
-    explanation: '"before the liquid had all run out" — "liquid" refers back to the previously mentioned "wine." This is an example of elegant variation using a superordinate term (hypernym) to avoid repetition.',
+    id: 'ex-p1-02',
+    moduleId: '1-3',
+    moduleTitle: 'Anticipate the Outcome While Reading',
+    type: 'choice',
+    typeLabel: 'Multiple Choice',
+    passageTitle: `Practice 1: A Connecticut Yankee in King Arthur's Court`,
+    passage: `Presently a fair slip of a girl, about ten years old, with a cataract of golden hair streaming down over her shoulders, came along. Around her head she wore a hoop of flame-red poppies. It was as sweet an outfit as ever I saw, what there was of it. She walked indolently along, with a mind at rest, its peace reflected in her innocent face. The circus man paid no attention to her; didn't even seem to see her.`,
+    question: `Main Characters: Who are they?`,
+    answer: `The narrator (Hank Morgan), a circus man (dressed in fantastic make-up), and a young girl of about ten with golden hair.`,
+    explanation: `Three characters are clearly identified: the first-person narrator, his circus companion, and the girl with a flame-red poppy crown.`
+  },
+  {
+    id: 'ex-p1-03',
+    moduleId: '1-3',
+    moduleTitle: 'Anticipate the Outcome While Reading',
+    type: 'choice',
+    typeLabel: 'Multiple Choice',
+    passageTitle: `Practice 1: A Connecticut Yankee in King Arthur's Court`,
+    passage: `she—she was no more startled at his fantastic make-up than if she was used to his like every day of her life. She was going by as indifferently as she might have gone by a couple of cows; but when she happened to notice me, THEN there was a change! Up went her hands, and she was turned to stone; her mouth dropped open, her eyes stared wide and timorously, she was the picture of astonished curiosity touched with fear.`,
+    question: `Descriptions of main characters (physical and mental): Describe each.`,
+    answer: `Narrator: Observant, rational, puzzled by the girl's reaction. Circus man: Fantastic make-up, indifferent. Girl: Innocent, at peace, golden hair, startled by narrator.`,
+    explanation: `Each character is described through appearance and behavior.`
+  },
+  {
+    id: 'ex-p1-04',
+    moduleId: '1-3',
+    moduleTitle: 'Anticipate the Outcome While Reading',
+    type: 'choice',
+    typeLabel: 'Multiple Choice',
+    passageTitle: `Practice 1: A Connecticut Yankee in King Arthur's Court`,
+    passage: `In the town were some substantial windowless houses of stone scattered among a wilderness of thatched cabins; the streets were mere crooked alleys, and unpaved; troops of dogs and nude children played in the sun and made life and noise; hogs roamed and rooted contentedly about... Presently there was a distant blare of military music; it came nearer, still nearer, and soon a noble cavalcade wound into view, glorious with plumed helmets and flashing mail and flaunting banners and rich doublets and horse-cloths and gilded spearheads.`,
+    question: `What might happen to the characters?`,
+    answer: `The narrator and circus man will likely be taken as strange visitors entering the medieval town; the girl may report the sighting to others.`,
+    explanation: `The contrast between the modern narrator and the medieval setting sets up dramatic tension.`
+  },
+  {
+    id: 'ex-p1-05',
+    moduleId: '1-3',
+    moduleTitle: 'Anticipate the Outcome While Reading',
+    type: 'choice',
+    typeLabel: 'Multiple Choice',
+    passageTitle: `Practice 1: A Connecticut Yankee in King Arthur's Court`,
+    passage: `"CAMELOT—Camelot," said I to myself. "I don't seem to remember hearing of it before. Name of the asylum, likely."`,
+    question: `The narrator thought that the name 'Camelot' referred to:`,
+    answer: 'B',
+    options: ["A kingdom", "An asylum", "A restaurant", "A circus"],
+    explanation: `The text says: 'Name of the asylum, likely.' The narrator, a modern man, dismisses Camelot as a mental institution.`
   },
 
-  // ===== Unit 2: Poetry =====
-
-  // 2.1 Major Components
+  // ================================================================
+  // Module 1.3 — Anticipate Outcome: Practice 2 (7 Qs)
+  // ================================================================
   {
-    id: '2-1-ex01', moduleId: '2-1', moduleTitle: '2.1 诗歌基本要素',
-    type: 'choice', typeLabel: '选择题',
-    passageTitle: 'Robert Frost — The Road Not Taken',
-    passage: `Two roads diverged in a yellow wood,
-And sorry I could not travel both
-And be one traveler, long I stood
-And looked down one as far as I could
-To where it bent in the undergrowth;
+    id: 'ex-p2-01',
+    moduleId: '1-3',
+    moduleTitle: 'Anticipate the Outcome While Reading',
+    type: 'choice',
+    typeLabel: 'Multiple Choice',
+    passageTitle: `Practice 2: One of Ours — Circus Morning`,
+    passage: `Claude Wheeler opened his eyes before the sun was up and vigorously shook his younger brother, who lay in the other half of the same bed.
 
-Then took the other, as just as fair,
-And having perhaps the better claim,
-Because it was grassy and wanted wear;
-Though as for that the passing there
-Had worn them really about the same,
+"Ralph, Ralph, get awake! Come down and help me wash the car."
 
-And both that morning equally lay
-In leaves no step had trodden black.
-Oh, I kept the first for another day!
-Yet knowing how way leads on to way,
-I doubted if I should ever come back.
+"Why for?"
 
-I shall be telling this with a sigh
-Somewhere ages and ages hence:
-Two roads diverged in a wood, and I—
-I took the one less traveled by,
-And that has made all the difference.`,
-    question: 'How many stanzas does this poem have, and how many lines per stanza?',
-    answer: '4 stanzas, 5 lines each',
-    options: ['4 stanzas, 5 lines each', '5 stanzas, 4 lines each', '3 stanzas, 7 lines each', '4 stanzas, 4 lines each'],
-    explanation: 'Stanza 1: lines 1-5; Stanza 2: lines 6-10; Stanza 3: lines 11-15; Stanza 4: lines 16-20. Each stanza contains exactly 5 lines, for a total of 4 stanzas.',
+"Why, aren't we going to the circus today?"`,
+    question: `When might the story have happened? (Time)`,
+    answer: `Early morning before sunrise, in August, during the early 20th century.`,
+    explanation: `Context clues: 'before the sun was up,' 'August pastures,' 'tin basin,' 'corn-cobs to start a fire.'`
   },
   {
-    id: '2-1-ex02', moduleId: '2-1', moduleTitle: '2.1 诗歌基本要素',
-    type: 'fill', typeLabel: '填空题',
-    passageTitle: 'Robert Frost — The Road Not Taken (stanza 1)',
-    passage: `Two roads diverged in a yellow wood,
-And sorry I could not travel both
-And be one traveler, long I stood
-And looked down one as far as I could
-To where it bent in the undergrowth;`,
-    question: 'This stanza has _____ lines. (enter a number)',
-    answer: '5',
-    explanation: 'Simply count: each line begins with a capital letter, and there are 5 lines total.',
+    id: 'ex-p2-02',
+    moduleId: '1-3',
+    moduleTitle: 'Anticipate the Outcome While Reading',
+    type: 'choice',
+    typeLabel: 'Multiple Choice',
+    passageTitle: `Practice 2: One of Ours — Circus Morning`,
+    passage: `Claude caught up his cap and ran out of doors, down the hillside toward the barn. The sun popped up over the edge of the prairie like a broad, smiling face; the light poured across the close-cropped August pastures and the hilly, timbered windings of Lovely Creek, a clear little stream with a sand bottom, that curled and twisted playfully about through the south section of the big Wheeler ranch. It was a fine day to go to the circus at Frankfort.`,
+    question: `Where might the story have happened? (Place)`,
+    answer: `On the Wheeler ranch near Frankfort, in the Midwest prairie, near Lovely Creek.`,
+    explanation: `The text mentions 'the big Wheeler ranch,' 'the prairie,' 'Lovely Creek,' and 'the circus at Frankfort.'`
   },
+  {
+    id: 'ex-p2-03',
+    moduleId: '1-3',
+    moduleTitle: 'Anticipate the Outcome While Reading',
+    type: 'choice',
+    typeLabel: 'Multiple Choice',
+    passageTitle: `Practice 2: One of Ours — Circus Morning`,
+    passage: `Claude Wheeler opened his eyes before the sun was up and vigorously shook his younger brother, who lay in the other half of the same bed.
 
-  // 2.2 Rhyme Scheme
-  {
-    id: '2-2-ex01', moduleId: '2-2', moduleTitle: '2.2 尾韵格式',
-    type: 'fill', typeLabel: '填空题',
-    passageTitle: 'Robert Frost — The Road Not Taken (stanza 1)',
-    passage: `Two roads diverged in a yellow wood, ( )
-And sorry I could not travel both ( )
-And be one traveler, long I stood ( )
-And looked down one as far as I could ( )
-To where it bent in the undergrowth; ( )`,
-    question: 'Mark the rhyme scheme of this stanza (use a, b). Line 1: ___, Line 2: ___, Line 3: ___, Line 4: ___, Line 5: ___.',
-    answer: 'abaab',
-    explanation: 'wood(a) — both(b) — stood(a) — could(a) — undergrowth(b). Note: wood/stood/could rhyme → a; both/undergrowth rhyme → b. The scheme is abaab.',
+Old Mahailey herself came in from the yard, with her apron full of corn-cobs to start a fire in the kitchen stove. She smiled at him in the foolish fond way she often had with him when they were alone.`,
+    question: `What are the main characters?`,
+    answer: `Claude Wheeler, Ralph Wheeler (younger brother), and Mahailey (the housekeeper).`,
+    explanation: `Three characters appear: Claude (protagonist), Ralph (brother), and old Mahailey.`
   },
   {
-    id: '2-2-ex02', moduleId: '2-2', moduleTitle: '2.2 尾韵格式',
-    type: 'choice', typeLabel: '选择题',
-    passageTitle: 'Emily Dickinson — Hope is the thing with feathers',
-    passage: `"Hope" is the thing with feathers —
-That perches in the soul —
-And sings the tune without the words —
-And never stops — at all —`,
-    question: 'What is the rhyme scheme of this stanza?',
-    answer: 'abcb',
-    options: ['aabb', 'abab', 'abcb', 'aaaa'],
-    explanation: 'feathers(a) and words(c) do not rhyme; soul(b) and all(b) rhyme. Therefore the scheme is abcb.',
-  },
+    id: 'ex-p2-04',
+    moduleId: '1-3',
+    moduleTitle: 'Anticipate the Outcome While Reading',
+    type: 'choice',
+    typeLabel: 'Multiple Choice',
+    passageTitle: `Practice 2: One of Ours — Circus Morning`,
+    passage: `Claude Wheeler opened his eyes before the sun was up and vigorously shook his younger brother, who lay in the other half of the same bed.
 
-  // 2.3 Alliteration
-  {
-    id: '2-3-ex01', moduleId: '2-3', moduleTitle: '2.3 头韵',
-    type: 'fill', typeLabel: '填空题',
-    passageTitle: 'Edgar Allan Poe — The Raven',
-    passage: `Once upon a midnight dreary, while I pondered, weak and weary,
-Over many a quaint and curious volume of forgotten lore—
-While I nodded, nearly napping, suddenly there came a tapping,
-As of some one gently rapping, rapping at my chamber door.`,
-    question: 'In this stanza, which three consecutive words form an alliteration? (enter the three words, separated by spaces)',
-    answer: 'weak and weary',
-    explanation: '"weak and weary" — all three words begin with the w sound, forming alliteration. Poe uses alliteration to enhance rhythm while the soft w sound conveys the narrator\'s exhaustion and fragility.',
-  },
-  {
-    id: '2-3-ex02', moduleId: '2-3', moduleTitle: '2.3 头韵',
-    type: 'choice', typeLabel: '选择题',
-    passageTitle: 'Edgar Allan Poe — The Raven',
-    passage: `And the silken, sad, uncertain rustling of each purple curtain
-Thrilled me — filled me with fantastic terrors never felt before;`,
-    question: 'What literary device is used in "silken, sad, uncertain rustling"?',
-    answer: 'Alliteration',
-    options: ['Simile', 'Alliteration', 'Personification', 'Metaphor'],
-    explanation: '"silken, sad" both begin with s, forming alliteration. The s sound mimics the rustling of curtains (also an example of onomatopoeia) while conveying a sorrowful atmosphere.',
-  },
+Old Mahailey herself came in from the yard... She smiled at him in the foolish fond way she often had with him when they were alone.
 
-  // 2.4 Poetic Forms
-  {
-    id: '2-4-ex01', moduleId: '2-4', moduleTitle: '2.4 诗歌体式',
-    type: 'choice', typeLabel: '选择题',
-    passageTitle: 'Shakespeare — Sonnet 18',
-    passage: `Shall I compare thee to a summer's day?
-Thou art more lovely and more temperate:
-Rough winds do shake the darling buds of May,
-And summer's lease hath all too short a date:
-Sometime too hot the eye of heaven shines,
-And often is his gold complexion dimm'd;
-And every fair from fair sometime declines,
-By chance or nature's changing course untrimm'd;
-But thy eternal summer shall not fade
-Nor lose possession of that fair thou owest;
-Nor shall Death brag thou wander'st in his shade,
-When in eternal lines to time thou growest:
-So long as men can breathe or eyes can see,
-So long lives this and this gives life to thee.`,
-    question: 'What poetic form does this poem belong to?',
-    answer: 'Sonnet — specifically, a Shakespearean (English) Sonnet',
-    options: ['Limerick', 'Free Verse', 'Sonnet — specifically, a Shakespearean (English) Sonnet', 'Petrarchan (Italian) Sonnet'],
-    explanation: '14 lines = Sonnet. A Shakespearean Sonnet is characterized by 3 quatrains + 1 couplet, with the rhyme scheme abab cdcd efef gg.',
+"What air you gittin' up for a-ready, boy? You goin' to the circus before breakfast? Don't you make no noise, else you'll have 'em all down here before I git my fire a-goin'."`,
+    question: `What is the relationship between the main characters?`,
+    answer: `Claude and Ralph are brothers. Mahailey is the family's housekeeper who has a fond, maternal relationship with Claude.`,
+    explanation: `They share a bed; Mahailey smiles at Claude 'in the foolish fond way she often had with him when they were alone.'`
   },
   {
-    id: '2-4-ex02', moduleId: '2-4', moduleTitle: '2.4 诗歌体式',
-    type: 'choice', typeLabel: '选择题',
-    passageTitle: 'Edward Lear — Limerick',
-    passage: `There was an Old Man with a beard,
-Who said, "It is just as I feared!—
-Two Owls and a Hen,
-Four Larks and a Wren,
-Have all built their nests in my beard!"`,
-    question: 'What poetic form and characteristic features does this poem exhibit?',
-    answer: 'Limerick — 5 lines, aabba rhyme scheme, humorous/absurd content',
-    options: [
-      'Sonnet',
-      'Limerick — 5 lines, aabba rhyme scheme, humorous/absurd content',
-      'Free Verse',
-      'Elegy',
-    ],
-    explanation: '5 lines + aabba rhyme (beard/feared/Hen/Wren/beard) + absurd humor = the defining characteristics of a Limerick. The content — birds nesting in a beard — is classic limerick absurdity.',
-  },
-  {
-    id: '2-4-ex03', moduleId: '2-4', moduleTitle: '2.4 诗歌体式',
-    type: 'short_answer', typeLabel: '简答题',
-    passageTitle: 'Walt Whitman — Song of Myself (excerpt)',
-    passage: `I celebrate myself, and sing myself,
-And what I assume you shall assume,
-For every atom belonging to me as good belongs to you.
+    id: 'ex-p2-05',
+    moduleId: '1-3',
+    moduleTitle: 'Anticipate the Outcome While Reading',
+    type: 'choice',
+    typeLabel: 'Multiple Choice',
+    passageTitle: `Practice 2: One of Ours — Circus Morning`,
+    passage: `Claude rose and dressed,—a simple operation which took very little time. He crept down two flights of stairs, feeling his way in the dusk, his red hair standing up in peaks, like a cock's comb.
 
-I loafe and invite my soul,
-I lean and loafe at my ease observing a spear of summer grass.`,
-    question: 'What poetic form does this poem belong to? Give two reasons for your answer.',
-    answer: 'Free Verse. Reasons: (1) No fixed rhyme scheme — there is no end rhyme pattern. (2) No fixed meter — line lengths vary considerably (line 1 has 10 syllables vs. line 3 with 17 syllables), relying on natural speech rhythms rather than a consistent metrical pattern.',
-    explanation: 'Walt Whitman was the pioneer of free verse in English. This poem has no rhyme scheme, and line lengths vary dramatically, depending on breath rhythm rather than a fixed meter.',
+"Car's all right. Let me alone." The boy turned over and pulled the sheet up to his face, to shut out the light.
+
+Old Mahailey herself came in from the yard, with her apron full of corn-cobs to start a fire in the kitchen stove. She smiled at him in the foolish fond way she often had with him when they were alone.`,
+    question: `Descriptive words of main characters: List key traits.`,
+    answer: `Claude: eager, energetic, red hair. Ralph: lazy, reluctant. Mahailey: fond, caring, maternal, uses dialect.`,
+    explanation: `Each character is revealed through actions and speech patterns.`
+  },
+  {
+    id: 'ex-p2-06',
+    moduleId: '1-3',
+    moduleTitle: 'Anticipate the Outcome While Reading',
+    type: 'choice',
+    typeLabel: 'Multiple Choice',
+    passageTitle: `Practice 2: One of Ours — Circus Morning`,
+    passage: `It was a fine day to go to the circus at Frankfort, a fine day to do anything, the sort of day that must, somehow, turn out well.`,
+    question: `What might happen to the characters?`,
+    answer: `The family will go to the circus at Frankfort. The beautiful day suggests the outing will be enjoyable.`,
+    explanation: `The narrative sets up anticipation; the last line hints at the day 'must, somehow, turn out well.'`
+  },
+  {
+    id: 'ex-p2-07',
+    moduleId: '1-3',
+    moduleTitle: 'Anticipate the Outcome While Reading',
+    type: 'choice',
+    typeLabel: 'Multiple Choice',
+    passageTitle: `Practice 2: One of Ours — Circus Morning`,
+    passage: `Claude Wheeler opened his eyes before the sun was up and vigorously shook his younger brother. "Ralph, Ralph, get awake! Come down and help me wash the car." ... "Why, aren't we going to the circus today?"`,
+    question: `What is an appropriate title for this passage?`,
+    answer: `Circus Morning / The Day of the Circus / Claude's Early Morning`,
+    explanation: `Claude's early rise for the circus trip is the central event.`
   },
 
-  // 2.5 Figurative Language
+  // ================================================================
+  // Module 1.3 — Anticipate Outcome: Practice 3 (7 Qs)
+  // ================================================================
   {
-    id: '2-5-ex01', moduleId: '2-5', moduleTitle: '2.5 修辞语言',
-    type: 'choice', typeLabel: '选择题',
-    passageTitle: 'Shakespeare — Sonnet 18',
-    passage: `Shall I compare thee to a summer's day?
-Thou art more lovely and more temperate:`,
-    question: 'What figure of speech is used in "Shall I compare thee to a summer\'s day?"',
-    answer: 'A simile introduction / the opening of an extended metaphor',
-    options: ['Metaphor', 'A simile introduction / the opening of an extended metaphor', 'Personification', 'Imagery'],
-    explanation: '"compare...to..." is the hallmark structure of a simile. The entire poem unfolds as an extended metaphor: comparing the beloved to a summer\'s day, but ultimately declaring the beloved superior to summer.',
+    id: 'ex-p3-01',
+    moduleId: '1-3',
+    moduleTitle: 'Anticipate the Outcome While Reading',
+    type: 'choice',
+    typeLabel: 'Multiple Choice',
+    passageTitle: `Practice 3: The Most Dangerous Game`,
+    passage: `The pent-up air burst hotly from Rainsford's lungs. His first thought made him feel sick and numb. The general could follow a trail through the woods at night; he could follow an extremely difficult trail; he must have uncanny powers; only by the merest chance had the Cossack failed to see his quarry.`,
+    question: `Where might the story have happened? (Setting)`,
+    answer: `In a dense forest on a remote island, at dawn. The story is set on Ship-Trap Island.`,
+    explanation: `The woods, the huge dead tree, the fallen log — all indicate a wild, forested island setting.`
   },
   {
-    id: '2-5-ex02', moduleId: '2-5', moduleTitle: '2.5 修辞语言',
-    type: 'choice', typeLabel: '选择题',
-    passageTitle: 'Shakespeare — Sonnet 18',
-    passage: `Sometime too hot the eye of heaven shines,
-And often is his gold complexion dimm'd;`,
-    question: 'What figure of speech is "the eye of heaven," and what does it refer to?',
-    answer: 'Metaphor + Personification. "The eye of heaven" = the sun',
-    options: [
-      'Simile, referring to the moon',
-      'Metaphor + Personification, referring to the sun',
-      'Symbol, referring to God',
-      'Alliteration, referring to the sky',
-    ],
-    explanation: 'The sun is compared to an "eye" (metaphor) and is given human attributes — a "gold complexion" and the capacity to shine "too hot" (personification). This is a layered use of two figures of speech.',
+    id: 'ex-p3-02',
+    moduleId: '1-3',
+    moduleTitle: 'Anticipate the Outcome While Reading',
+    type: 'choice',
+    typeLabel: 'Multiple Choice',
+    passageTitle: `Practice 3: The Most Dangerous Game`,
+    passage: `Rainsford's second thought was even more terrible. It sent a shudder of cold horror through his whole being. Why had the general smiled? Why had he turned back?
+
+Rainsford did not want to believe what his reason told him was true, but the truth was as evident as the sun that had by now pushed through the morning mists. The general was playing with him! The general was saving him for another day's sport!`,
+    question: `What are the main characters?`,
+    answer: `Rainsford (the hunted, an experienced hunter) and General Zaroff (the Cossack hunter).`,
+    explanation: `The passage focuses on Rainsford's terrified realization and Zaroff's predatory pursuit.`
   },
   {
-    id: '2-5-ex03', moduleId: '2-5', moduleTitle: '2.5 修辞语言',
-    type: 'choice', typeLabel: '选择题',
-    passageTitle: 'Walter de la Mare — Silver',
-    passage: `Slowly, silently, now the moon
-Walks the night in her silver shoon;
-This way, and that, she peers, and sees
-Silver fruit upon silver trees;`,
-    question: 'The moon "walks" and "peers." What figure of speech is this?',
-    answer: 'Personification',
-    options: ['Simile', 'Metaphor', 'Personification', 'Alliteration'],
-    explanation: 'Attributing human actions — walking and peering — to the moon is classic personification. The moonlight is thus given a gentle, maternal quality of surveying the earth.',
+    id: 'ex-p3-03',
+    moduleId: '1-3',
+    moduleTitle: 'Anticipate the Outcome While Reading',
+    type: 'choice',
+    typeLabel: 'Multiple Choice',
+    passageTitle: `Practice 3: The Most Dangerous Game`,
+    passage: `The general was playing with him! The general was saving him for another day's sport! The Cossack was the cat; he was the mouse. Then it was that Rainsford knew the full meaning of terror.`,
+    question: `What is the relationship between the main characters?`,
+    answer: `Hunter and prey. Zaroff is the cat; Rainsford is the mouse.`,
+    explanation: `The text explicitly states: 'The Cossack was the cat; he was the mouse.'`
   },
   {
-    id: '2-5-ex04', moduleId: '2-5', moduleTitle: '2.5 修辞语言',
-    type: 'short_answer', typeLabel: '简答题',
-    passageTitle: 'Walter de la Mare — Silver (excerpt)',
-    passage: `Slowly, silently, now the moon
-Walks the night in her silver shoon;
-This way, and that, she peers, and sees
-Silver fruit upon silver trees;
-One by one the casements catch
-Her beams beneath the silvery thatch;
-Couched in his kennel, like a log,
-With paws of silver sleeps the dog;`,
-    question: 'Identify one simile and two examples of imagery in this stanza.',
-    answer: 'Simile: "like a log" (the dog lies as still as a log). Imagery: "silver fruit upon silver trees" (visual imagery of moonlight transforming the orchard), "paws of silver" (visual imagery of moonlight on the dog\'s paws), "silvery thatch" (visual imagery of moonlit rooftops). The entire poem is saturated with silver-colored visual imagery.',
-    explanation: 'Imagery: the poem uses "silver" repeatedly to create a sustained visual image of moonlight, evoking a tranquil, surreal atmosphere. Simile: only "like a log" uses an explicit comparison with "like." de la Mare builds the poem through dense visual imagery, letting readers "see" the silver world under moonlight.',
+    id: 'ex-p3-04',
+    moduleId: '1-3',
+    moduleTitle: 'Anticipate the Outcome While Reading',
+    type: 'choice',
+    typeLabel: 'Multiple Choice',
+    passageTitle: `Practice 3: The Most Dangerous Game`,
+    passage: `The general could follow a trail through the woods at night; he could follow an extremely difficult trail; he must have uncanny powers; only by the merest chance had the Cossack failed to see his quarry.
+
+"I will not lose my nerve. I will not."
+
+He slid down from the tree, and struck off again into the woods. His face was set and he forced the machinery of his mind to function.`,
+    question: `Descriptive words of main characters: List key traits.`,
+    answer: `Zaroff: cunning, patient, sadistic, has 'uncanny powers.' Rainsford: terrified but determined, resourceful, refuses to give up.`,
+    explanation: `The cat-and-mouse dynamic defines both characters.`
+  },
+  {
+    id: 'ex-p3-05',
+    moduleId: '1-3',
+    moduleTitle: 'Anticipate the Outcome While Reading',
+    type: 'choice',
+    typeLabel: 'Multiple Choice',
+    passageTitle: `Practice 3: The Most Dangerous Game`,
+    passage: `Three hundred yards from his hiding place he stopped where a huge dead tree leaned precariously on a smaller, living one. Throwing off his sack of food, Rainsford began to work with all his energy.
+
+The job was finished at last, and he threw himself down behind a fallen log a hundred feet away. He did not have to wait long. The cat was coming again to play with the mouse.`,
+    question: `What might happen to the characters?`,
+    answer: `Rainsford is setting a trap for Zaroff using the dead tree. A confrontation is imminent.`,
+    explanation: `Rainsford is hiding behind a fallen log; 'the cat was coming again to play with the mouse.'`
+  },
+  {
+    id: 'ex-p3-06',
+    moduleId: '1-3',
+    moduleTitle: 'Anticipate the Outcome While Reading',
+    type: 'choice',
+    typeLabel: 'Multiple Choice',
+    passageTitle: `Practice 3: The Most Dangerous Game`,
+    passage: `Three hundred yards from his hiding place he stopped where a huge dead tree leaned precariously on a smaller, living one. Throwing off his sack of food, Rainsford began to work with all his energy.
+
+The job was finished at last, and he threw himself down behind a fallen log a hundred feet away.`,
+    question: `What will the character do to tackle the situation?`,
+    answer: `Rainsford will use the dead tree as a trap to attack Zaroff when he approaches.`,
+    explanation: `He worked on the tree arrangement and is waiting for Zaroff.`
+  },
+  {
+    id: 'ex-p3-07',
+    moduleId: '1-3',
+    moduleTitle: 'Anticipate the Outcome While Reading',
+    type: 'choice',
+    typeLabel: 'Multiple Choice',
+    passageTitle: `Practice 3: The Most Dangerous Game`,
+    passage: `He did not have to wait long. The cat was coming again to play with the mouse.`,
+    question: `What outcome will the character come to?`,
+    answer: `Rainsford will likely survive this encounter, but the larger game is not yet over.`,
+    explanation: `The tension suggests a turning point, but Zaroff's playfulness indicates the hunt continues.`
   },
 
-  // 2.6 Poetic Vocabulary
+  // ================================================================
+  // Module 1.3 — Anticipate Outcome: Practice 4 (4 Qs)
+  // ================================================================
   {
-    id: '2-6-ex01', moduleId: '2-6', moduleTitle: '2.6 古英语词汇',
-    type: 'fill', typeLabel: '填空题',
-    passageTitle: 'Robert Burns — A Red, Red Rose',
-    passage: `O my Luve is like a red, red rose
-That's newly sprung in June;
-O my Luve is like the melody
-That's sweetly played in tune.
+    id: 'ex-p4-01',
+    moduleId: '1-3',
+    moduleTitle: 'Anticipate the Outcome While Reading',
+    type: 'choice',
+    typeLabel: 'Multiple Choice',
+    passageTitle: `Practice 4: Around the World in Eighty Days`,
+    passage: `The train had started punctually. Among the passengers were a number of officers, Government officials, and opium and indigo merchants, whose business called them to the eastern coast. Passepartout rode in the same carriage with his master, and a third passenger occupied a seat opposite to them. This was Sir Francis Cromarty, one of Mr. Fogg's whist partners on the Mongolia, now on his way to join his corps at Benares.`,
+    question: `Where might the story have happened? (Setting)`,
+    answer: `On a train traveling through India, during the British colonial period (19th century).`,
+    explanation: `Mentions of 'Sepoy revolt,' 'Benares,' and 'opium and indigo merchants' indicate colonial India.`
+  },
+  {
+    id: 'ex-p4-02',
+    moduleId: '1-3',
+    moduleTitle: 'Anticipate the Outcome While Reading',
+    type: 'choice',
+    typeLabel: 'Multiple Choice',
+    passageTitle: `Practice 4: Around the World in Eighty Days`,
+    passage: `Passepartout rode in the same carriage with his master, and a third passenger occupied a seat opposite to them. This was Sir Francis Cromarty, one of Mr. Fogg's whist partners on the Mongolia, now on his way to join his corps at Benares.`,
+    question: `What are the main characters?`,
+    answer: `Phileas Fogg, Passepartout (Fogg's servant), and Sir Francis Cromarty.`,
+    explanation: `Three characters are named and travel together.`
+  },
+  {
+    id: 'ex-p4-03',
+    moduleId: '1-3',
+    moduleTitle: 'Anticipate the Outcome While Reading',
+    type: 'choice',
+    typeLabel: 'Multiple Choice',
+    passageTitle: `Practice 4: Around the World in Eighty Days`,
+    passage: `Passepartout rode in the same carriage with his master, and a third passenger occupied a seat opposite to them. This was Sir Francis Cromarty, one of Mr. Fogg's whist partners on the Mongolia, now on his way to join his corps at Benares.`,
+    question: `What is the relationship between the main characters?`,
+    answer: `Fogg and Passepartout are master and servant. Sir Francis is a casual acquaintance/whist partner.`,
+    explanation: `Passepartout is Fogg's servant; Sir Francis is 'one of Mr. Fogg's whist partners on the Mongolia.'`
+  },
+  {
+    id: 'ex-p4-04',
+    moduleId: '1-3',
+    moduleTitle: 'Anticipate the Outcome While Reading',
+    type: 'choice',
+    typeLabel: 'Multiple Choice',
+    passageTitle: `Practice 4: Around the World in Eighty Days`,
+    passage: `Phileas Fogg, who was not traveling, but only describing a circumference, took no pains to inquire into these subjects; he was a solid body, traversing an orbit around the terrestrial globe, according to the laws of rational mechanics. He was at this moment calculating in his mind the number of hours spent since his departure from London.
 
-As fair art thou, my bonnie lass,
-So deep in luve am I;
-And I will luve thee still, my dear,
-Till a' the seas gang dry.`,
-    question: 'Translate "As fair art thou, my bonnie lass" into modern English.',
-    answer: 'As beautiful you are, my pretty girl',
-    explanation: 'fair = beautiful; art = are (paired with thou); thou = you; bonnie = pretty; lass = girl. The full line: You are so beautiful, my pretty girl.',
-  },
-  {
-    id: '2-6-ex02', moduleId: '2-6', moduleTitle: '2.6 古英语词汇',
-    type: 'fill', typeLabel: '填空题',
-    passageTitle: 'Robert Burns — A Red, Red Rose',
-    passage: `And I will luve thee still, my dear,
-Till a' the seas gang dry.`,
-    question: '"thee" is the object form of _____, "a\'" is a contraction of _____, and "gang" means _____.',
-    answer: 'thou / all / go',
-    explanation: 'thee = object form of thou (you object); a\' = all (Scots dialect contraction); gang = go. The full line: I will love you still, my dear, until all the seas go dry.',
-  },
-  {
-    id: '2-6-ex03', moduleId: '2-6', moduleTitle: '2.6 古英语词汇',
-    type: 'choice', typeLabel: '选择题',
-    passageTitle: 'Shakespeare — Sonnet 18',
-    passage: `Nor shall Death brag thou wander'st in his shade,
-When in eternal lines to time thou growest:`,
-    question: 'What does the -est/-st suffix in "thou wander\'st" and "thou growest" indicate?',
-    answer: 'Second-person singular (paired with "thou")',
-    options: [
-      'Past tense',
-      'Second-person singular (paired with "thou")',
-      'Third-person singular (paired with "he/she")',
-      'Passive voice',
-    ],
-    explanation: 'The -est/-st suffix pairs with "thou" to mark the second-person singular. thou wander\'st = you wander; thou growest = you grow. Compare with -th/-eth (third-person singular, e.g., he goeth).',
+Sir Francis Cromarty had observed the oddity of his traveling companion... and questioned himself whether a human heart really beat beneath this cold exterior.`,
+    question: `Descriptive words of main characters: List key traits.`,
+    answer: `Phileas Fogg: cold, precise, calculating, mechanical, indifferent to beauty. Sir Francis: tall, fair, conventional, distinguished. Passepartout: loyal servant.`,
+    explanation: `Fogg is portrayed as a 'solid body, traversing an orbit'; Sir Francis observes his oddity.`
   },
 
-  // 2.7 Poetic Grammar
+  // ================================================================
+  // Unit 2 — Poetry: Practice 1 — Claude & Mahailey (2 Qs)
+  // ================================================================
   {
-    id: '2-7-ex01', moduleId: '2-7', moduleTitle: '2.7 诗歌语法',
-    type: 'fill', typeLabel: '填空题',
-    passageTitle: 'Samuel Taylor Coleridge — The Rime of the Ancient Mariner',
-    passage: `The ship was cheered, the harbour cleared,
-Merrily did we drop
-Below the kirk, below the hill,
-Below the lighthouse top.`,
-    question: 'What is the normal word order for "Merrily did we drop"?',
-    answer: 'We dropped merrily',
-    explanation: 'This is subject-verb inversion: adverb fronted (Merrily) + auxiliary verb (did) + subject (we) + main verb (drop). Normal order: We dropped merrily. Coleridge uses inversion to maintain the ballad meter.',
+    id: 'ex-poetry-p1-01',
+    moduleId: '2-1',
+    moduleTitle: 'Major Components of Poetry',
+    type: 'choice',
+    typeLabel: 'Multiple Choice',
+    passageTitle: `Poetry Practice 1: One of Ours — Claude & Mahailey`,
+    passage: `She had left the sitting-room because she was afraid Claude might get angry and say something hard to his father, and because she couldn't bear to see him hectored. Claude had always found life hard to live; he suffered so much over little things,—and she suffered with him. For herself, she never felt disappointments. Her husband's careless decisions did not disconcert her.`,
+    question: `Repetition in this passage: Identify patterns of repeated words or structures.`,
+    answer: `The passage repeats the pattern of Mahailey's emotions mirroring Claude's state: 'she suffered with him,' 'something ached in her,' 'a wave of physical contentment went through her.'`,
+    explanation: `The repetition emphasizes Mahailey's complete emotional identification with Claude.`
   },
   {
-    id: '2-7-ex02', moduleId: '2-7', moduleTitle: '2.7 诗歌语法',
-    type: 'choice', typeLabel: '选择题',
-    passageTitle: 'John Keats — La Belle Dame sans Merci',
-    passage: `O what can ail thee, knight-at-arms,
-Alone and palely loitering?
-The sedge has withered from the lake,
-And no birds sing.`,
-    question: 'Why is "palely" placed before "loitering" in "palely loitering"?',
-    answer: 'Poetic inversion — the normal order is "loitering palely"',
-    options: [
-      'This is normal word order',
-      'Poetic inversion — the normal order is "loitering palely"',
-      'This is a grammatical error',
-      '"palely" modifies "knight-at-arms" rather than "loitering"',
-    ],
-    explanation: 'The normal word order would be "loitering palely" (loitering in a pale manner), but Keats fronts the adverb to create a more poetic word order while emphasizing the knight\'s pallor. This is a common form of rhetorical inversion in poetry.',
-  },
-  {
-    id: '2-7-ex03', moduleId: '2-7', moduleTitle: '2.7 诗歌语法',
-    type: 'fill', typeLabel: '填空题',
-    passageTitle: 'John Donne — Holy Sonnet 10',
-    passage: `Death, be not proud, though some have called thee
-Mighty and dreadful, for thou art not so;
-For those whom thou think'st thou dost overthrow
-Die not, poor Death, nor yet canst thou kill me.`,
-    question: 'In "canst thou," what person is indicated by the -st suffix? What is the modern English form of "canst"?',
-    answer: 'Second-person singular (paired with "thou") / can',
-    explanation: 'canst = second-person singular form of "can," paired with "thou." thou canst = you can. Similar forms: thou dost (you do), thou hast (you have).',
-  },
-  {
-    id: '2-7-ex04', moduleId: '2-7', moduleTitle: '2.7 诗歌语法',
-    type: 'short_answer', typeLabel: '简答题',
-    passageTitle: 'John Donne — Holy Sonnet 10 (excerpt)',
-    passage: `Death, be not proud, though some have called thee
-Mighty and dreadful, for thou art not so;
-For those whom thou think'st thou dost overthrow
-Die not, poor Death, nor yet canst thou kill me.`,
-    question: 'Translate the first two lines into modern English and identify the archaic grammatical features.',
-    answer: '"Death, do not be proud, although some have called you mighty and dreadful, for you are not so." Archaic features: "thee" = you (object form); "thou art" = you are; the negative imperative "be not proud" (modern = "do not be proud").',
-    explanation: 'Donne directly addresses Death (apostrophe) in this sonnet, using archaic pronouns to create a solemn tone. "thou art," "thee" and other archaic forms are not obstacles here but part of the rhetorical strategy — adding gravity when confronting the ultimate existential question.',
+    id: 'ex-poetry-p1-02',
+    moduleId: '2-1',
+    moduleTitle: 'Major Components of Poetry',
+    type: 'choice',
+    typeLabel: 'Multiple Choice',
+    passageTitle: `Poetry Practice 1: One of Ours — Claude & Mahailey`,
+    passage: `It had always been so. And now, as she grew older, and her flesh had almost ceased to be concerned with pain or pleasure, like the wasted wax images in old churches, it still vibrated with his feelings and became quick again for him. His chagrins shrivelled her. When he was hurt and suffered silently, something ached in her. On the other hand, when he was happy, a wave of physical contentment went through her.`,
+    question: `Characteristics of Claude and Mahailey: Describe each.`,
+    answer: `Claude: sensitive, suffers over small things, 'singular light in his eyes,' 'perturbed spirit.' Mahailey: selfless, religious, emotionally dependent on Claude's happiness, physically diminished but spiritually alive.`,
+    explanation: `The contrast between Claude's visible suffering and Mahailey's quiet, devotional love defines both.`
   },
 ]
 

@@ -22,14 +22,14 @@ export default function Flashcards() {
   return (
     <div>
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold">词汇闪卡</h1>
+        <h1 className="text-3xl font-bold">Vocabulary Flashcards</h1>
         <Link to="/vocabulary" className="btn-secondary">
-          返回词汇表
+          Back to Vocabulary
         </Link>
       </div>
 
       <p className="text-gray-600 dark:text-gray-400 mb-2">
-        {index + 1} / {vocabWords.length} · 已掌握 {knownCount}
+        {index + 1} / {vocabWords.length} · Mastered {knownCount}
       </p>
 
       <div className="w-full h-64 mb-4">
@@ -41,7 +41,7 @@ export default function Flashcards() {
             {!flipped ? (
               <>
                 <p className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-4">{word.word}</p>
-                <p className="text-sm text-gray-500 dark:text-gray-400">点击翻转</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400">Tap to Flip</p>
               </>
             ) : (
               <>
@@ -60,10 +60,10 @@ export default function Flashcards() {
 
       <div className="flex justify-center gap-4">
         <button onClick={next} className="btn-secondary">
-          跳过
+          Skip
         </button>
         <button onClick={markKnown} className="btn-primary">
-          已掌握
+          Mastered
         </button>
       </div>
     </div>

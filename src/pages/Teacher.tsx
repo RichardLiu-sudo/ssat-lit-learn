@@ -6,13 +6,13 @@ export default function Teacher() {
 
   return (
     <div className="max-w-3xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6">教师讲解面板</h1>
+      <h1 className="text-3xl font-bold mb-6">Teacher Presentation Panel</h1>
 
       <div className="card mb-6">
-        <h2 className="text-xl font-semibold mb-4">讲解模式</h2>
+        <h2 className="text-xl font-semibold mb-4">Presentation Mode</h2>
         <p className="text-gray-600 dark:text-gray-400 mb-4">
-          开启讲解模式后，学习内容将支持逐步揭示，适合课堂投影场景。
-          字号自动放大，侧边栏收起，可一键全屏展示。
+          When Presentation Mode is enabled, learning content supports step-by-step reveal, ideal for classroom projection.
+          Font size is enlarged, the sidebar collapses, and full-screen display is one click away.
         </p>
         <button
           onClick={toggleTeacherMode}
@@ -22,29 +22,29 @@ export default function Teacher() {
               : 'bg-amber-500 hover:bg-amber-600 text-white'
           }`}
         >
-          {teacherMode ? '退出讲解模式' : '进入讲解模式'}
+          {teacherMode ? 'Exit Presentation Mode' : 'Enter Presentation Mode'}
         </button>
       </div>
 
       <div className="card mb-6">
-        <h2 className="text-xl font-semibold mb-4">快速导航</h2>
+        <h2 className="text-xl font-semibold mb-4">Quick Navigation</h2>
         <div className="grid md:grid-cols-2 gap-4">
           <Link to="/learn" className="btn-primary text-center">
-            学习中心
+            Learning Center
           </Link>
           <Link to="/practice" className="btn-secondary text-center">
-            练习中心
+            Practice Center
           </Link>
         </div>
       </div>
 
       <div className="card">
-        <h2 className="text-xl font-semibold mb-4">课堂使用提示</h2>
+        <h2 className="text-xl font-semibold mb-4">Classroom Tips</h2>
         <ul className="space-y-3 text-gray-600 dark:text-gray-400">
-          <li>• 进入讲解模式后，内容默认隐藏，点击"显示下一节"逐段展示</li>
-          <li>• 练习答案在讲解模式下默认隐藏，便于课堂提问</li>
-          <li>• 按 <kbd className="px-2 py-0.5 bg-gray-100 dark:bg-gray-800 rounded text-sm">F11</kbd> 进入浏览器全屏</li>
-          <li>• 使用侧边栏可在模块间快速跳转</li>
+          <li>• In Presentation Mode, content is hidden by default. Click "Reveal Next" to show section by section.</li>
+          <li>• Exercise answers are hidden by default in Presentation Mode, ideal for classroom Q&A.</li>
+          <li>• Press <kbd className="px-2 py-0.5 bg-gray-100 dark:bg-gray-800 rounded text-sm">F11</kbd> to enter browser fullscreen.</li>
+          <li>• Use the sidebar to quickly navigate between modules.</li>
         </ul>
       </div>
     </div>

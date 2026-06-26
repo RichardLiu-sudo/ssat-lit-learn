@@ -9,18 +9,18 @@ export default function Mistakes() {
   return (
     <div>
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold">错题本</h1>
+        <h1 className="text-3xl font-bold">Mistake Log</h1>
         {mistakeExercises.length > 0 && (
           <button onClick={clearMistakes} className="btn-secondary">
-            清空错题本
+            Clear Log
           </button>
         )}
       </div>
 
       {mistakeExercises.length === 0 ? (
         <div className="card text-center py-12">
-          <p className="text-gray-600 dark:text-gray-400 text-lg mb-2">暂无错题</p>
-          <p className="text-gray-500 dark:text-gray-500">继续保持！</p>
+          <p className="text-gray-600 dark:text-gray-400 text-lg mb-2">No mistakes yet</p>
+          <p className="text-gray-500 dark:text-gray-500">Keep it up!</p>
         </div>
       ) : (
         <div className="space-y-4">
@@ -37,10 +37,10 @@ export default function Mistakes() {
                 <p className="font-medium mb-3">{ex.question}</p>
                 <div className="p-3 bg-red-50 dark:bg-red-900/20 rounded-lg border border-red-200 dark:border-red-800">
                   <p className="text-sm text-red-700 dark:text-red-300">
-                    你的答案: {result?.userAnswer}
+                    Your answer: {result?.userAnswer}
                   </p>
                   <p className="text-sm text-green-700 dark:text-green-300 mt-1">
-                    正确答案: {ex.answer}
+                    Correct answer: {ex.answer}
                   </p>
                   {ex.explanation && (
                     <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">{ex.explanation}</p>

@@ -3,12 +3,12 @@ import { useStore } from '../store/useStore'
 import { FiSun, FiMoon, FiMonitor } from 'react-icons/fi'
 
 const navLinks = [
-  { to: '/', label: '首页' },
-  { to: '/learn', label: '学习中心' },
-  { to: '/practice', label: '练习' },
-  { to: '/vocabulary', label: '词汇' },
-  { to: '/mistakes', label: '错题本' },
-  { to: '/dashboard', label: '仪表盘' },
+  { to: '/', label: 'Home' },
+  { to: '/learn', label: 'Learning Center' },
+  { to: '/practice', label: 'Practice' },
+  { to: '/vocabulary', label: 'Vocabulary' },
+  { to: '/mistakes', label: 'Mistake Log' },
+  { to: '/dashboard', label: 'Dashboard' },
 ]
 
 export default function Navbar() {
@@ -46,15 +46,15 @@ export default function Navbar() {
                 ? 'bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400'
                 : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800'
             }`}
-            title={teacherMode ? '退出讲解模式' : '讲解模式'}
+            title={teacherMode ? 'Exit Presentation Mode' : 'Presentation Mode'}
           >
             <FiMonitor className="inline mr-1" />
-            {teacherMode ? '讲解中' : '讲解'}
+            {teacherMode ? 'Presenting' : 'Present'}
           </button>
           <button
             onClick={toggleDarkMode}
             className="p-2 rounded-md text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
-            title={darkMode ? '亮色模式' : '暗色模式'}
+            title={darkMode ? 'Light Mode' : 'Dark Mode'}
           >
             {darkMode ? <FiSun size={18} /> : <FiMoon size={18} />}
           </button>

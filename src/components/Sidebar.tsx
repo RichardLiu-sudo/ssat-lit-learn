@@ -31,7 +31,7 @@ export default function Sidebar() {
         })}
 
         <h3 className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-3 mt-6">
-          Unit 2 · 诗歌阅读
+          Unit 2 · Poetry Reading
         </h3>
         {unit2.map((m) => {
           const status = getModuleStatus(m.id, m.prerequisites || [])

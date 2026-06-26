@@ -16,7 +16,7 @@ export default function Practice() {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold mb-6">练习中心</h1>
+      <h1 className="text-3xl font-bold mb-6">Practice Center</h1>
 
       <div className="flex gap-4 mb-6">
         <select
@@ -24,7 +24,7 @@ export default function Practice() {
           onChange={(e) => setFilterModule(e.target.value)}
           className="px-3 py-2 border rounded-lg bg-white dark:bg-gray-800 dark:border-gray-700"
         >
-          <option value="all">全部模块</option>
+          <option value="all">All Modules</option>
           {modules.map((m) => (
             <option key={m.id} value={m.id}>{m.titleCn}</option>
           ))}
@@ -34,10 +34,10 @@ export default function Practice() {
           onChange={(e) => setFilterType(e.target.value)}
           className="px-3 py-2 border rounded-lg bg-white dark:bg-gray-800 dark:border-gray-700"
         >
-          <option value="all">全部题型</option>
-          <option value="choice">选择题</option>
-          <option value="fill">填空题</option>
-          <option value="short_answer">简答题</option>
+          <option value="all">All Types</option>
+          <option value="choice">Multiple Choice</option>
+          <option value="fill">Fill in the Blank</option>
+          <option value="short_answer">Short Answer</option>
         </select>
       </div>
 
@@ -104,13 +104,13 @@ function ExerciseCard({ exercise, result, onSubmit }: any) {
           disabled={submitted}
           className="w-full p-3 border rounded-lg mb-4 bg-white dark:bg-gray-800 dark:border-gray-700"
           rows={3}
-          placeholder="输入你的答案..."
+          placeholder="Type your answer..."
         />
       )}
 
       {!submitted ? (
         <button onClick={handleSubmit} className="btn-primary" disabled={!answer}>
-          提交答案
+          Submit
         </button>
       ) : (
         <div className={`p-3 rounded-lg ${
@@ -118,9 +118,9 @@ function ExerciseCard({ exercise, result, onSubmit }: any) {
             ? 'bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800'
             : 'bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800'
         }`}>
-          <p className="font-medium">{result?.correct ? '正确' : '错误'}</p>
-          <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">你的答案: {result?.userAnswer}</p>
-          <p className="text-sm text-gray-600 dark:text-gray-400">正确答案: {exercise.answer}</p>
+          <p className="font-medium">{result?.correct ? 'Correct!' : 'Incorrect'}</p>
+          <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Your answer: {result?.userAnswer}</p>
+          <p className="text-sm text-gray-600 dark:text-gray-400">Correct answer: {exercise.answer}</p>
           {exercise.explanation && (
             <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">{exercise.explanation}</p>
           )}

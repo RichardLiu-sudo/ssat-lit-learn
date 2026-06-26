@@ -7,15 +7,15 @@ export default function Learn() {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold mb-2">学习中心</h1>
+      <h1 className="text-3xl font-bold mb-2">Learning Center</h1>
       <p className="text-gray-600 dark:text-gray-400 mb-8">
-        按顺序完成以下模块，每个模块包含理论讲解、范文精读和配套练习。
+        Complete the following modules in order. Each module includes theory explanations, model passage analysis, and practice exercises.
       </p>
 
       <div className="space-y-6">
         <div>
           <h2 className="text-xl font-semibold mb-4 text-blue-600 dark:text-blue-400">
-            Unit 1 · 小说阅读
+            Unit 1 · Fiction Reading
           </h2>
           <div className="grid md:grid-cols-2 gap-4">
             {modules
@@ -29,7 +29,7 @@ export default function Learn() {
 
         <div>
           <h2 className="text-xl font-semibold mb-4 text-purple-600 dark:text-purple-400">
-            Unit 2 · 诗歌阅读
+            Unit 2 · Poetry Reading
           </h2>
           <div className="grid md:grid-cols-2 gap-4">
             {modules
@@ -47,10 +47,10 @@ export default function Learn() {
 
 function ModuleCard({ module, status }: any) {
   const statusText: Record<string, string> = {
-    locked: '锁定',
-    available: '可开始',
-    'in-progress': '进行中',
-    completed: '已完成',
+    locked: 'Locked',
+    available: 'Available',
+    'in-progress': 'In Progress',
+    completed: 'Completed',
   }
   const statusColor: Record<string, string> = {
     locked: 'bg-gray-200 text-gray-700 dark:bg-gray-800 dark:text-gray-400',
@@ -73,7 +73,7 @@ function ModuleCard({ module, status }: any) {
       <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">{module.description}</p>
       <div className="flex justify-between items-center text-sm">
         <span className="text-gray-500 dark:text-gray-400">
-          {module.estimatedTime} · {module.exerciseCount} 题
+          {module.estimatedTime} · {module.exerciseCount} questions
         </span>
         <Link
           to={`/learn/${module.id}`}
@@ -83,7 +83,7 @@ function ModuleCard({ module, status }: any) {
               : 'bg-blue-600 hover:bg-blue-700 text-white'
           }`}
         >
-          {status === 'completed' ? '复习' : '进入'}
+          {status === 'completed' ? 'Review' : 'Enter'}
         </Link>
       </div>
     </div>

@@ -39,7 +39,7 @@ export default function StepReveal({ children, teacherMode: forceMode }: Props) 
           onClick={() => setShowAll(!showAll)}
           className="btn-secondary"
         >
-          {showAll ? '逐步揭示' : '全部显示'}
+          {showAll ? 'Step by Step' : 'Show All'}
         </button>
       </div>
     </div>

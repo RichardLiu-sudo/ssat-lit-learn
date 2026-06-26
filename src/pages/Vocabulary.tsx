@@ -18,14 +18,14 @@ export default function Vocabulary() {
   return (
     <div>
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold">诗歌古英语词汇</h1>
+        <h1 className="text-3xl font-bold">Poetry Archaic Vocabulary</h1>
         <Link to="/vocabulary/flashcard" className="btn-primary">
-          闪卡模式
+          Flashcard Mode
         </Link>
       </div>
 
       <p className="text-gray-600 dark:text-gray-400 mb-6">
-        {vocabWords.length}+ 高频诗歌古英语词汇，按 7 种词性分类。
+        {vocabWords.length}+ high-frequency poetry archaic vocabulary, categorized by 7 parts of speech.
       </p>
 
       <div className="flex gap-4 mb-6">
@@ -33,7 +33,7 @@ export default function Vocabulary() {
           type="text"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          placeholder="搜索古英语或现代英语..."
+          placeholder="Search archaic or modern English..."
           className="flex-1 px-4 py-2 border rounded-lg bg-white dark:bg-gray-800 dark:border-gray-700"
         />
         <select
@@ -43,7 +43,7 @@ export default function Vocabulary() {
         >
           {posTypes.map((pos) => (
             <option key={pos} value={pos}>
-              {pos === 'all' ? '全部词性' : pos}
+              {pos === 'all' ? 'All POS' : pos}
             </option>
           ))}
         </select>

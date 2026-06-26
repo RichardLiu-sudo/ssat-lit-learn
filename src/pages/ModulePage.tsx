@@ -23,9 +23,9 @@ export default function ModulePage() {
   if (!module) {
     return (
       <div className="text-center py-12">
-        <h2 className="text-2xl font-bold mb-2">模块不存在</h2>
-        <p className="text-gray-600 dark:text-gray-400 mb-4">请检查 URL 或返回学习中心。</p>
-        <button onClick={() => navigate('/learn')} className="btn-primary">返回学习中心</button>
+        <h2 className="text-2xl font-bold mb-2">Module Not Found</h2>
+        <p className="text-gray-600 dark:text-gray-400 mb-4">Please check the URL or return to the Learning Center.</p>
+        <button onClick={() => navigate('/learn')} className="btn-primary">Back to Learning Center</button>
       </div>
     )
   }
@@ -61,7 +61,7 @@ export default function ModulePage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h3 className="text-xl font-semibold flex items-center gap-2">
-          篇章练习 ({moduleExercises.length} 题)
+          Passage Practice ({moduleExercises.length} questions)
         </h3>
         {moduleExercises.length > 0 && (
           <button
@@ -78,21 +78,21 @@ export default function ModulePage() {
             }
             className="text-sm text-blue-600 dark:text-blue-400 hover:underline"
           >
-            {revealedAnswers.size === moduleExercises.length ? '隐藏全部答案' : '显示全部答案'}
+            {revealedAnswers.size === moduleExercises.length ? 'Hide All Answers' : 'Show All Answers'}
           </button>
         )}
       </div>
 
       {moduleExercises.length === 0 ? (
         <div className="card text-center text-gray-500 dark:text-gray-400 py-8">
-          该模块暂无配套篇章练习
+          No passage practice available for this module
         </div>
       ) : (
         moduleExercises.map((ex) => (
           <div key={ex.id} className="card">
             <div className="flex items-start justify-between mb-3">
               <span className={`px-2 py-0.5 rounded text-xs font-medium ${typeBadgeColor(ex.type)}`}>
-                {ex.type === 'choice' ? '选择' : ex.type === 'fill' ? '填空' : '简答'}
+                {ex.type === 'choice' ? 'Choice' : ex.type === 'fill' ? 'Fill-in' : 'Short Answer'}
               </span>
               {ex.passageTitle && (
                 <span className="text-sm font-medium text-gray-500 dark:text-gray-400">{ex.passageTitle}</span>
@@ -128,7 +128,7 @@ export default function ModulePage() {
                       <span className="font-mono text-gray-400 mr-2">{String.fromCharCode(65 + i)}.</span>
                       <span>{opt}</span>
                       {isRevealed && isCorrect && (
-                        <span className="ml-2 text-green-600 dark:text-green-400 font-medium">← 正确答案</span>
+                        <span className="ml-2 text-green-600 dark:text-green-400 font-medium">← Correct Answer</span>
                       )}
                     </div>
                   )
@@ -139,7 +139,7 @@ export default function ModulePage() {
             {(ex.type === 'fill' || ex.type === 'short_answer') && (
               <div className="mb-3">
                 <div className="p-3 border border-dashed border-gray-300 dark:border-gray-600 rounded-lg text-sm text-gray-400 dark:text-gray-500 italic">
-                  {revealedAnswers.has(ex.id) ? `答案：${ex.answer}` : '点击「显示答案」查看'}
+                  {revealedAnswers.has(ex.id) ? `Answer: ${ex.answer}` : 'Click "Show Answer" to reveal'}
                 </div>
               </div>
             )}
@@ -149,12 +149,12 @@ export default function ModulePage() {
                 onClick={() => toggleReveal(ex.id)}
                 className="text-sm text-blue-600 dark:text-blue-400 hover:underline"
               >
-                {revealedAnswers.has(ex.id) ? '隐藏答案' : '显示答案'}
+                {revealedAnswers.has(ex.id) ? 'Hide Answer' : 'Show Answer'}
               </button>
               {ex.explanation && revealedAnswers.has(ex.id) && (
                 <details className="text-sm">
                   <summary className="text-gray-500 dark:text-gray-400 cursor-pointer hover:text-gray-700 dark:hover:text-gray-300">
-                    查看解析
+                    View Explanation
                   </summary>
                   <div className="mt-2 p-3 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded text-gray-700 dark:text-gray-300">
                     {ex.explanation}
@@ -178,17 +178,17 @@ export default function ModulePage() {
             <button
               onClick={() => setEditingNote(idx)}
               className="absolute top-4 right-4 p-2 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300"
-              title="添加笔记"
+              title="Add Note"
             >
               <FiEdit2 />
             </button>
           )}
           {editingNote === idx && (
             <div className="mt-4 p-4 border border-gray-200 dark:border-gray-800 rounded-lg">
-              <textarea value={noteText} onChange={(e) => setNoteText(e.target.value)} className="w-full p-2 border rounded mb-2" rows={3} placeholder="写下你的笔记..." />
+              <textarea value={noteText} onChange={(e) => setNoteText(e.target.value)} className="w-full p-2 border rounded mb-2" rows={3} placeholder="Write your note..." />
               <div className="flex gap-2 justify-end">
-                <button onClick={() => setEditingNote(null)} className="btn-secondary">取消</button>
-                <button onClick={() => handleAddNote(idx)} className="btn-primary">保存</button>
+                <button onClick={() => setEditingNote(null)} className="btn-secondary">Cancel</button>
+                <button onClick={() => handleAddNote(idx)} className="btn-primary">Save</button>
               </div>
             </div>
           )}
@@ -214,14 +214,14 @@ export default function ModulePage() {
         <div className="lg:col-span-2 space-y-8">
           {moduleExercises.length > 0 && (
             <div className="flex items-center gap-3 p-4 bg-gray-50 dark:bg-gray-800/60 rounded-lg border border-gray-200 dark:border-gray-700">
-              <span className="text-sm font-medium text-gray-600 dark:text-gray-400">学习模式：</span>
+              <span className="text-sm font-medium text-gray-600 dark:text-gray-400">Study Mode:</span>
               <button
                 onClick={() => setPracticeMode('learn-first')}
                 className={`px-3 py-1.5 rounded text-sm font-medium transition ${
                   practiceMode === 'learn-first' ? 'bg-blue-600 text-white' : 'bg-white dark:bg-gray-700 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600'
                 }`}
               >
-                先学后练
+                Learn First
               </button>
               <button
                 onClick={() => setPracticeMode('practice-first')}
@@ -229,7 +229,7 @@ export default function ModulePage() {
                   practiceMode === 'practice-first' ? 'bg-blue-600 text-white' : 'bg-white dark:bg-gray-700 text-gray-600 dark:text-gray-300 border border-gray-300 dark:border-gray-600'
                 }`}
               >
-                先练后学
+                Practice First
               </button>
             </div>
           )}
@@ -239,30 +239,30 @@ export default function ModulePage() {
           {practiceMode === 'learn-first' && renderExercises()}
 
           <div className="card">
-            <h3 className="text-xl font-semibold mb-4">模块进度</h3>
-            <p className="text-gray-600 dark:text-gray-400 mb-4">完成本模块所有内容学习与篇章练习后，可标记为完成。</p>
+            <h3 className="text-xl font-semibold mb-4">Module Progress</h3>
+            <p className="text-gray-600 dark:text-gray-400 mb-4">Mark this module as complete after finishing all learning content and passage practice.</p>
             <button onClick={() => markModuleComplete(moduleId!)} className="btn-primary flex items-center gap-2">
-              <FiCheck />标记完成
+              <FiCheck />Mark Complete
             </button>
           </div>
         </div>
 
         <div className="space-y-6">
           <div className="card">
-            <h3 className="font-semibold mb-3">模块信息</h3>
+            <h3 className="font-semibold mb-3">Module Info</h3>
             <ul className="space-y-2 text-sm">
-              <li className="flex justify-between"><span className="text-gray-500 dark:text-gray-400">单元</span><span>Unit {module.unit}</span></li>
-              <li className="flex justify-between"><span className="text-gray-500 dark:text-gray-400">预估时间</span><span>{module.estimatedTime}</span></li>
-              <li className="flex justify-between"><span className="text-gray-500 dark:text-gray-400">前置模块</span><span>{module.prerequisites?.length ? module.prerequisites.map(p => p.replace('-', '.')).join(', ') : '无'}</span></li>
-              <li className="flex justify-between"><span className="text-gray-500 dark:text-gray-400">篇章练习</span><span>{moduleExercises.length} 道</span></li>
+              <li className="flex justify-between"><span className="text-gray-500 dark:text-gray-400">Unit</span><span>Unit {module.unit}</span></li>
+              <li className="flex justify-between"><span className="text-gray-500 dark:text-gray-400">Est. Time</span><span>{module.estimatedTime}</span></li>
+              <li className="flex justify-between"><span className="text-gray-500 dark:text-gray-400">Prerequisites</span><span>{module.prerequisites?.length ? module.prerequisites.map(p => p.replace('-', '.')).join(', ') : 'None'}</span></li>
+              <li className="flex justify-between"><span className="text-gray-500 dark:text-gray-400">Passage Practice</span><span>{moduleExercises.length} questions</span></li>
               <li className="flex justify-between">
-                <span className="text-gray-500 dark:text-gray-400">技能标签</span>
+                <span className="text-gray-500 dark:text-gray-400">Skill Tags</span>
                 <div className="flex flex-wrap gap-1 justify-end">{module.tags?.map(tag => <span key={tag} className="px-2 py-0.5 bg-gray-100 dark:bg-gray-800 rounded text-xs">{tag}</span>)}</div>
               </li>
             </ul>
           </div>
           <div className="card">
-            <h3 className="font-semibold mb-3">学习目标</h3>
+            <h3 className="font-semibold mb-3">Learning Objectives</h3>
             <ul className="space-y-2 text-sm">
               {module.learningObjectives?.map((obj, i) => <li key={i} className="flex items-start gap-2"><span className="text-green-500 mt-0.5">•</span><span>{obj}</span></li>)}
             </ul>
