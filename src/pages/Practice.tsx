@@ -36,6 +36,7 @@ export default function Practice() {
         >
           <option value="all">All Types</option>
           <option value="choice">Multiple Choice</option>
+          <option value="multiselect">Multiple Select</option>
           <option value="fill">Fill in the Blank</option>
           <option value="short_answer">Short Answer</option>
         </select>
@@ -53,21 +54,42 @@ export default function Practice() {
 
 function ExerciseCard({ exercise, result, onSubmit }: any) {
   const [answer, setAnswer] = useState('')
+  const [multiAnswer, setMultiAnswer] = useState<string[]>([])
   const [submitted, setSubmitted] = useState(!!result)
 
   const handleSubmit = () => {
-    const correct =
-      exercise.type === 'choice'
-        ? answer === exercise.answer
-        : answer.trim().toLowerCase().includes(exercise.answer.toLowerCase())
+    let correct = false
+    let userAnswerStr = ''
+    if (exercise.type === 'choice') {
+      correct = answer === exercise.answer
+      userAnswerStr = answer
+    } else if (exercise.type === 'multiselect') {
+      const sortedUser = [...multiAnswer].sort().join('')
+      const sortedCorrect = exercise.answer.split('').sort().join('')
+      correct = sortedUser === sortedCorrect
+      userAnswerStr = multiAnswer.sort().join('')
+    } else {
+      correct = answer.trim().toLowerCase().includes(exercise.answer.toLowerCase())
+      userAnswerStr = answer
+    }
     onSubmit({
       exerciseId: exercise.id,
       correct,
-      userAnswer: answer,
+      userAnswer: userAnswerStr,
       timestamp: Date.now(),
     })
     setSubmitted(true)
   }
+
+  const toggleMulti = (opt: string) => {
+    if (submitted) return
+    setMultiAnswer((prev) =>
+      prev.includes(opt) ? prev.filter((o) => o !== opt) : [...prev, opt]
+    )
+  }
+
+  const canSubmit =
+    exercise.type === 'multiselect' ? multiAnswer.length > 0 : !!answer
 
   return (
     <div className="card">
@@ -77,6 +99,20 @@ function ExerciseCard({ exercise, result, onSubmit }: any) {
         </span>
         <span className="text-xs text-gray-500 dark:text-gray-400">{exercise.moduleTitle}</span>
       </div>
+
+      {exercise.passage && (
+        <div className="mb-4 p-3 bg-gray-50 dark:bg-gray-800/50 rounded-lg border border-gray-100 dark:border-gray-700">
+          {exercise.passageTitle && (
+            <p className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">
+              {exercise.passageTitle}
+            </p>
+          )}
+          <p className="text-sm text-gray-600 dark:text-gray-400 italic leading-relaxed">
+            {exercise.passage}
+          </p>
+        </div>
+      )}
+
       <p className="text-lg font-medium mb-4">{exercise.question}</p>
 
       {exercise.type === 'choice' && (
@@ -97,7 +133,35 @@ function ExerciseCard({ exercise, result, onSubmit }: any) {
         </div>
       )}
 
-      {exercise.type !== 'choice' && (
+      {exercise.type === 'multiselect' && (
+        <div className="space-y-2 mb-4">
+          {exercise.options?.map((opt: string, i: number) => (
+            <label
+              key={i}
+              className={`flex items-center gap-3 w-full text-left px-4 py-2 rounded-lg border transition-colors cursor-pointer ${
+                submitted
+                  ? 'cursor-default'
+                  : ''
+              } ${
+                multiAnswer.includes(opt)
+                  ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/20'
+                  : 'border-gray-200 dark:border-gray-700 hover:border-gray-300'
+              }`}
+            >
+              <input
+                type="checkbox"
+                checked={multiAnswer.includes(opt)}
+                onChange={() => toggleMulti(opt)}
+                disabled={submitted}
+                className="w-4 h-4 accent-blue-500"
+              />
+              <span>{String.fromCharCode(65 + i)}. {opt}</span>
+            </label>
+          ))}
+        </div>
+      )}
+
+      {exercise.type !== 'choice' && exercise.type !== 'multiselect' && (
         <textarea
           value={answer}
           onChange={(e) => setAnswer(e.target.value)}
@@ -109,7 +173,7 @@ function ExerciseCard({ exercise, result, onSubmit }: any) {
       )}
 
       {!submitted ? (
-        <button onClick={handleSubmit} className="btn-primary" disabled={!answer}>
+        <button onClick={handleSubmit} className="btn-primary" disabled={!canSubmit}>
           Submit
         </button>
       ) : (

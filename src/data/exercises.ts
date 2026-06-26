@@ -2,7 +2,7 @@ export interface Exercise {
   id: string
   moduleId: string
   moduleTitle: string
-  type: 'choice' | 'fill' | 'short_answer'
+  type: 'choice' | 'multiselect' | 'fill' | 'short_answer'
   typeLabel: string
   passage?: string
   passageTitle?: string
@@ -527,6 +527,50 @@ Sir Francis Cromarty had observed the oddity of his traveling companion... and q
     question: `Characteristics of Claude and Mahailey: Describe each.`,
     answer: `Claude: sensitive, suffers over small things, 'singular light in his eyes,' 'perturbed spirit.' Mahailey: selfless, religious, emotionally dependent on Claude's happiness, physically diminished but spiritually alive.`,
     explanation: `The contrast between Claude's visible suffering and Mahailey's quiet, devotional love defines both.`
+  },
+
+  // ================================================================
+  // Module 1.6 — Narrative Perspective — Multiselect (1 Q)
+  // ================================================================
+  {
+    id: 'ex-textc-02',
+    moduleId: '1-6',
+    moduleTitle: 'Narrative Perspective: Manipulation',
+    type: 'multiselect',
+    typeLabel: 'Multiple Select',
+    passageTitle: `Text C: The Tell-Tale Heart`,
+    passage: `Object there was none. Passion there was none. I loved the old man. He had never wronged me. He had never given me insult. For his gold I had no desire. I think it was his eye! yes, it was this! He had the eye of a vulture—a pale blue eye, with a film over it. Whenever it fell upon me, my blood ran cold; and so by degrees—very gradually—I made up my mind to take the old man's life, and thus rid myself of the eye forever.`,
+    question: `Which of the following does the narrator explicitly deny as motives for the murder?`,
+    answer: 'ABC',
+    options: [
+      "Desire for the old man's gold",
+      "Passion or anger",
+      "A past insult or wrong",
+      "Fear of being caught"
+    ],
+    explanation: `The narrator explicitly denies wanting gold ('For his gold I had no desire'), denies passion ('Passion there was none'), and denies being wronged ('He had never wronged me ... He had never given me insult'). Fear of being caught is never mentioned.`
+  },
+
+  // ================================================================
+  // Module 2-1 — Poetry — Multiselect (1 Q)
+  // ================================================================
+  {
+    id: 'ex-poetry-p1-03',
+    moduleId: '2-1',
+    moduleTitle: 'Major Components of Poetry',
+    type: 'multiselect',
+    typeLabel: 'Multiple Select',
+    passageTitle: `Poetry Practice 1: One of Ours — Claude & Mahailey`,
+    passage: `She had left the sitting-room because she was afraid Claude might get angry and say something hard to his father, and because she couldn't bear to see him hectored. Claude had always found life hard to live; he suffered so much over little things,—and she suffered with him. For herself, she never felt disappointments. Her husband's careless decisions did not disconcert her.`,
+    question: `Which of the following best describe Mahailey's character based on the passage?`,
+    answer: 'ABD',
+    options: [
+      "She is deeply empathetic toward Claude",
+      "She does not let personal disappointments affect her",
+      "She is ambitious and career-driven",
+      "Her emotional state mirrors Claude's"
+    ],
+    explanation: `The passage shows Mahailey 'suffered with him' (A), 'never felt disappointments' (B), and 'something ached in her' when Claude suffered (D). There is no mention of ambition or career.`
   },
 ]
 
